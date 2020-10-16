@@ -1,3 +1,3 @@
 # catAPI
 catAPI _ JS
-![alt text](http://https://github.com/Lee-ji-soo/catAPI/fetchcat.jpeg?raw=true
+![alt text](https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/fetchcat.jpeg?raw=true)
