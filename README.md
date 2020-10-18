@@ -10,7 +10,7 @@ JS, SCSS, HTML
 ## Open source CAT API 
 https://thecatapi.com/
 
-![alt text](https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/fetchcat.jpeg?raw=true)
+![alt text](https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/fetchcat2.jpeg?raw=true)
 
 ## Components
 -[ ] Select-breed
