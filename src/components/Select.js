@@ -1,13 +1,13 @@
 class Select {
-    constructor({ $app, $target, selectios, title }) {
+    constructor({ $app, $target, selections, title, onSelect }) {
         this.$app = $app;
         this.$target = $target;
-        this.list = selectios;
         this.selectTitle = title;
-
+        this.onSelect = onSelect
         this.state = {
+            list: selections,
             show: false,
-            selected: 'None'
+            selected: { id: 0, title: "None" }
         }
 
         //create Element
@@ -42,11 +42,11 @@ class Select {
         this.$select.style.display = 'none'
     }
 
-    onSelect(e) {
+    onClickSelect(e) {
         this.$selectList.forEach(list => e.target === list ?
-            this.state.selected = list.innerText : this.state.selected)
+            this.state.selected.title = list.innerText : this.state.selected)
         this.onHiddenSelect();
-        this.render();
+        this.setState({ ...this.state });
     }
 
     handleEvt(e) {
@@ -57,7 +57,7 @@ class Select {
             this.onHiddenSelect();
             return;
         } else if (e.target.classList.contains('selectList')) {
-            this.onSelect(e);
+            this.onClickSelect(e);
         }
     }
 
@@ -66,18 +66,25 @@ class Select {
     }
 
     render() {
-        const htmlStr = this.list.map(item =>
-            `<li><p class='selectList'>${item}</p></li>`
+        const htmlStr = this.state.list.map(item =>
+            `<li><p class='selectList'>${item.title}</p></li>`
         ).join('');
 
         this.$select.innerHTML = htmlStr;
         this.$selectList = this.$select.querySelectorAll('.selectList');
 
-        //selected
-        this.$selected.innerText = this.state.selected;
+        this.$selected.innerText = this.state.selected.title;
     }
 
     setState(nextData) {
+        this.state = nextData;
+        this.state.list.map(item => {
+            if (this.state.selected.title === item.title) {
+                this.state.selected = item
+            }
+        })
+
+        this.onSelect(this.state.selected);
         this.render();
     }
 }

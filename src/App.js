@@ -16,13 +16,14 @@ class App {
 
         this.data = {
             items: [],
-            page: 1,
-            keyword: ''
+            breed: 'None',
+            category: 0,
         }
 
         this.searchResult;
         this.selectBreed;
         this.selectCategory;
+        this.onSelect;
 
         this.init();
     };
@@ -45,15 +46,17 @@ class App {
         this.selectBreed = new Select({
             $app: this.$target,
             $target: this.$selectWrap,
-            selectios: breeds,
-            title: 'Breed'
+            selections: breeds,
+            title: 'Breed',
+            onSelect: this.onSelect
         })
 
         this.selectCategory = new Select({
             $app: this.$target,
             $target: this.$selectWrap,
-            selectios: categories,
-            title: 'Category'
+            selections: categories,
+            title: 'Category',
+            onSelect: (selected) => { this.onSelect(selected) },
         })
     };
 
@@ -83,8 +86,21 @@ class App {
         this.fetchCat();
     };
 
+    onSelect(selected) {
+        this.data.category = selected;
+        this.fetchSelect({ data: this.data })
+    }
+
     async fetchCat() {
         const cats = await api.fetchCats();
+        await this.setState({
+            ...this.data,
+            items: cats ? cats : []
+        });
+    }
+
+    async fetchSelect({ data }) {
+        const cats = await api.fetchSelect(data);
         await this.setState({
             ...this.data,
             items: cats ? cats : []
