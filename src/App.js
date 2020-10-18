@@ -1,4 +1,4 @@
-import { Select, SearchResult, Header } from './components';
+import { Select, SearchResult, Header, DarkMode } from './components';
 import { api } from './utils/api.js';
 import { breeds, categories } from './utils/select';
 
@@ -64,11 +64,18 @@ class App {
         });
     }
 
+    mountDarkMode() {
+        this.darkMode = new DarkMode({
+            $target: this.$header,
+        })
+    }
+
     mountComponent() {
         this.mountHeader();
         this.$header.appendChild(this.$selectWrap);
         this.mountSelect();
         this.mountResult();
+        this.mountDarkMode();
     }
 
     init() {

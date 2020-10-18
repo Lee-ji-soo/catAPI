@@ -3,22 +3,28 @@ class Select {
         this.$app = $app;
         this.$target = $target;
         this.list = selectios;
-        this.selectTitle = title
+        this.selectTitle = title;
 
         this.state = {
-            show: false
+            show: false,
+            selected: 'None'
         }
 
         //create Element
         this.$target.className = 'select_wrap'
         this.$selectForm = document.createElement('div');
         this.$selectForm.className = `select${this.selectTitle}_form select_form`;
-        this.$selectForm.innerText = `Select${this.selectTitle} ➕`
+        this.$selectForm.innerText = `${this.selectTitle}+`
+
         this.$select = document.createElement("ul");
         this.$select.className = `select${this.selectTitle} select`;
 
+        this.$selected = document.createElement('p');
+        this.$selected.className = 'selected';
+
         this.$target.appendChild(this.$selectForm);
-        this.$selectForm.appendChild(this.$select);
+        this.$selectForm.append(this.$select, this.$selected);
+        this.$selectList;
 
         this.init();
         this.render();
@@ -27,17 +33,36 @@ class Select {
         this.$app.addEventListener('click', (e) => { this.handleEvt(e) });
     }
 
+    onShowSelect() {
+        this.state.show = !this.state.show;
+        this.$select.style.display = this.state.show ? "block" : 'none'
+    }
+
+    onHiddenSelect() {
+        this.$select.style.display = 'none'
+    }
+
+    onSelect(e) {
+        this.$selectList.forEach(list => e.target === list ?
+            this.state.selected = list.innerText : this.state.selected)
+        this.onHiddenSelect();
+        this.render();
+    }
+
     handleEvt(e) {
         if (e.target === this.$selectForm) {
-            this.state.show = !this.state.show;
-            this.$select.style.display = this.state.show ? "block" : 'none'
+            this.onShowSelect();
+            return;
         } else if (this.state.show && !e.target.classList.contains('selectList')) {
-            this.$select.style.display = 'none'
+            this.onHiddenSelect();
+            return;
+        } else if (e.target.classList.contains('selectList')) {
+            this.onSelect(e);
         }
     }
 
     init() {
-        this.$select.style.display = 'none'
+        this.onHiddenSelect();
     }
 
     render() {
@@ -46,6 +71,14 @@ class Select {
         ).join('');
 
         this.$select.innerHTML = htmlStr;
+        this.$selectList = this.$select.querySelectorAll('.selectList');
+
+        //selected
+        this.$selected.innerText = this.state.selected;
+    }
+
+    setState(nextData) {
+        this.render();
     }
 }
 export default Select;

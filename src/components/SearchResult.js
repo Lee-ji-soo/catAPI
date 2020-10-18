@@ -12,7 +12,6 @@ class SearchResult {
 
     setState(nextData) {
         this.data = nextData.items;
-        console.log(this.data);
         this.render();
     }
 

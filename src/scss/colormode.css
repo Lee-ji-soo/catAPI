@@ -1,0 +1,22 @@
+/* dark mode 처리*/
+:root[color-mode='light']{
+    --font-color:#111;
+    --background-color:#fff
+  }
+  
+  :root[color-mode='dark']{
+    --font-color:#fff;
+    --background-color:#111
+  }
+  
+
+html{
+    color:var(--font-color);
+    background-color:var(--background-color);
+}
+
+#App header .select_wrap .select_form .select{
+  color:var(--font-color);
+  background-color:var(--background-color);
+  border:1px solid var(--font-color);
+}
