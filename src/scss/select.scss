@@ -1,0 +1,28 @@
+@import 'variables';
+
+#App{
+    header{
+        .select_wrap{            
+            position:relative;
+            display:grid;
+            width:100%;
+            height:20%;
+            grid-template-columns: repeat(2,1fr);
+        }
+
+       .select_form{    
+           .select{
+               background-color: rgba(255,255,255,0.8);
+               overflow-y: scroll;
+               position:absolute;
+               top:1.8rem;
+                width:50%;
+                height:600%;
+                font-size:1.2rem;
+
+               li{ padding:$listPaddingTB;
+               }
+           }
+        }
+    }
+}

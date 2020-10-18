@@ -1,0 +1,23 @@
+#App{
+    main{
+        ul{
+            width:100%;
+            height:100%;
+            display:grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(6,350px);
+            gap:5px 5px;
+            li{
+                width:100%;
+                height:100%;
+                div{
+                    width:100%;
+                    height:100%;
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+            }
+        }
+    }
+}

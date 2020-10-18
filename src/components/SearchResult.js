@@ -11,15 +11,19 @@ class SearchResult {
     }
 
     setState(nextData) {
+        this.data = nextData.items;
+        console.log(this.data);
         this.render();
     }
 
     render() {
         const htmlStr = this.data
             .map(cat => `<li class='item'>
-                    <img src=${cat.url} alt=${cat.name}/>
+                    <div style="background-image:url('${cat.url}')"></div>
                   </li>`)
             .join('');
+
+        this.$searchResult.innerHTML = htmlStr;
     }
 
 }
