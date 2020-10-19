@@ -6,6 +6,7 @@ JS, SCSS, HTML
 
 ## webpack install
 - [x] SCSS (css-loader,node-sass,sass-loader,style-loader)
+- [x] intersection-observer
 
 ## Open source CAT API 
 https://thecatapi.com/
@@ -14,13 +15,19 @@ https://thecatapi.com/
 
 ## Components
 - [x] Select
-- [ ] Result
+- [x] Result + 무한 스크롤
 - [ ] Detail
+- [ ] Vote
+- [ ] Upload
+- [ ] Favorite
 
 ## API
-- [ ] Search & Pagination
-- [ ] Search by Breed
+- [x] Search & Pagination (InterSectionObserver)
+- [x] Search by Breed
 - [x] Search by Category
+- [ ] Vote
+- [ ] Upload
 
 ## others
 - [x] Darkmode
+- [ ] isLoading

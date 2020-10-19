@@ -1,13 +1,16 @@
 class Select {
-    constructor({ $app, $target, selections, title, onSelect }) {
+    constructor({ $app, $target, selections, title, onSelectCategory, onSelectBreed }) {
         this.$app = $app;
         this.$target = $target;
         this.selectTitle = title;
-        this.onSelect = onSelect
+        this.selections = selections;
+        this.onSelectCategory = onSelectCategory;
+        this.onSelectBreed = onSelectBreed;
+
         this.state = {
-            list: selections,
+            list: this.selections,
             show: false,
-            selected: { id: 0, title: "None" }
+            selected: this.selections[0]
         }
 
         //create Element
@@ -43,10 +46,14 @@ class Select {
     }
 
     onClickSelect(e) {
-        this.$selectList.forEach(list => e.target === list ?
-            this.state.selected.title = list.innerText : this.state.selected)
+        this.$selectList.forEach(list => {
+            if (e.target === list) {
+                this.addItem(e, name = list.innerText);
+                return
+            }
+        })
         this.onHiddenSelect();
-        this.setState({ ...this.state });
+        this.addItem(e);
     }
 
     handleEvt(e) {
@@ -67,25 +74,33 @@ class Select {
 
     render() {
         const htmlStr = this.state.list.map(item =>
-            `<li><p class='selectList'>${item.title}</p></li>`
+            `<li><p class='selectList ${this.selectTitle}'>${item.name}</p></li>`
         ).join('');
 
         this.$select.innerHTML = htmlStr;
         this.$selectList = this.$select.querySelectorAll('.selectList');
 
-        this.$selected.innerText = this.state.selected.title;
+        this.$selected.innerText = this.state.selected.name;
     }
 
-    setState(nextData) {
-        this.state = nextData;
+    addItem(e, name) {
         this.state.list.map(item => {
-            if (this.state.selected.title === item.title) {
+            if (name === item.name) {
                 this.state.selected = item
             }
         })
-
-        this.onSelect(this.state.selected);
+        this.seperateEvt(e);
         this.render();
+    }
+
+    seperateEvt(e) {
+        if (e.target.classList.contains('Breed') && this.onSelectBreed) {
+            this.onSelectBreed(this.state.selected);
+        } else if (e.target.classList.contains('Category') && this.onSelectCategory) {
+            console.log(this.state.selected)
+            this.onSelectCategory(this.state.selected);
+            return;
+        }
     }
 }
 export default Select;
