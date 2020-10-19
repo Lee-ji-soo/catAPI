@@ -15,7 +15,11 @@ https://thecatapi.com/
 
 ## Components
 - [x] Select
-- [x] Result + 무한 스크롤
+   - [x] Category
+   - [x] Breed
+- [x] Result
+   - [x] 무한 스크롤 
+   - [x] LazyLoading
 - [ ] Detail
 - [ ] Vote
 - [ ] Upload
