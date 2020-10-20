@@ -78,7 +78,7 @@ class SearchResult {
     addClickEvt() {
         this.$cat.forEach((cat, index) => {
             cat.addEventListener("click", () => {
-                this.handleClick(this.data.items[index]);
+                this.handleClick(this.data[index]);
             });
         });
     }
