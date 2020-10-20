@@ -11,7 +11,6 @@ class SearchInfo {
 
     setState(nextData) {
         this.data = nextData;
-        console.log(this.data);
         this.render();
     };
 

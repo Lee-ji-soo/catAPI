@@ -115,7 +115,6 @@ class App {
 
     onBottom() {
         this.isLoading.setState(true);
-        console.log('bottom');
         this.data.page = this.data.page + 1;
         this.fetchMoreCat(this.data)
     }
@@ -144,11 +143,13 @@ class App {
 
     async fetchMoreCat(data = this.data, state = this.state) {
         const cats = await api.fetchMoreCat(data, state);
-        this.searchResult.setState({
-            ...this.data,
-            items: cats ? cats : [],
-            page: this.data.page
-        });
+        if (cats.length > 1) {
+            this.searchResult.setState({
+                ...this.data,
+                items: cats ? cats : [],
+                page: this.data.page
+            });
+        }
         this.isLoading.setState(false);
     }
 
