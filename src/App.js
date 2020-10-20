@@ -1,5 +1,4 @@
-import { Select, SearchResult, Header, DarkMode } from './components';
-import SearchInfo from './components/SearchInfo';
+import { Select, SearchResult, SearchInfo, Header, DarkMode, Loading } from './components';
 import { api } from './utils/api.js';
 
 class App {
@@ -42,6 +41,9 @@ class App {
             ...this.data,
             items: nextData.items
         }
+
+        this.isLoading.setState(false);
+
         this.searchResult.setState({
             ...this.data,
             items: nextData.items ? nextData.items : [],
@@ -70,8 +72,18 @@ class App {
     };
 
     mountComponent() {
+
         this.header = new Header({
             $target: this.$header
+        })
+
+        this.isLoading = new Loading({
+            $target: this.$target,
+            loading: this.state.loading
+        })
+
+        this.darkMode = new DarkMode({
+            $target: this.$header,
         })
 
         this.$header.appendChild(this.$selectWrap);
@@ -83,14 +95,11 @@ class App {
             onClickImg: (data) => { this.onClickImg(data) }
         });
 
-        this.darkMode = new DarkMode({
-            $target: this.$header,
-        })
-
         this.searchInfo = new SearchInfo({
             $target: this.$main,
             data: this.state
         })
+
     }
 
     mountInitialCat() {
@@ -105,12 +114,13 @@ class App {
     };
 
     onBottom() {
-        console.log('bottom')
+        this.isLoading.setState(true);
         this.data.page = this.data.page + 1;
         this.fetchMoreCat(this.data)
     }
 
     onClickImg(data) {
+        this.isLoading.setState(true);
         this.searchInfo.setState({
             ...this.state,
             clicked: data,
@@ -119,11 +129,13 @@ class App {
     }
 
     onSelectBreed(selected) {
+        this.isLoading.setState(true);
         this.data.breed = selected;
         this.fetchBreed({ breed: this.data.breed });
     }
 
     onSelectCategory(selected) {
+        this.isLoading.setState(true);
         this.data.category = selected;
         this.fetchCategory({ category: this.data.category })
     }
