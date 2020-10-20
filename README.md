@@ -20,7 +20,7 @@ https://thecatapi.com/
 - [x] Result
    - [x] 무한 스크롤 
    - [x] LazyLoading
-- [ ] Detail
+- [x] Detail
 - [ ] Vote
 - [ ] Upload
 - [ ] Favorite

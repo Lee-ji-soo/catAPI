@@ -1,18 +1,23 @@
 class SearchResult {
 
-    constructor({ $target, data, onBottom }) {
+    constructor({ $target, data, onBottom, onClickImg }) {
         this.data = data;
         this.$target = $target;
         this.$observer;
         this.onBottom = onBottom;
+        this.onClickImg = onClickImg;
+
         //render cats
         this.$searchResult = document.createElement("ul");
         this.$searchResult.className = "SearchResult";
         this.$target.appendChild(this.$searchResult);
         this.page = data.page;
 
+        //각 고양이 이미지
+        this.$cat;
+
         const options = {
-            rootMargin: "0px",
+            rootMargin: "-100px",
             threshold: 1
         }
 
@@ -36,14 +41,24 @@ class SearchResult {
         })
     }
 
+    handleClick(e) {
+        console.log(e.target);
+    }
+
     setState(nextData) {
-        this.data = nextData.items;
         this.page = nextData.page;
+
+        if (this.page !== 1) {
+            this.data.items = this.data.items.concat(nextData.items);
+        } else {
+            this.data.items = nextData.items
+        }
+
         this.render();
     }
 
     render() {
-        const htmlStr = this.data
+        const htmlStr = this.data.items
             .map((cat, index) => `<li class='item' data-index=${index}>
                     <img data-src=${cat.url} alt=${cat.name} 
                     src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F2ChCI%2FbtqvPbkYHXS%2FBjoh4TSXHv66xRoiu6mrr1%2Fimg.gif'/>
@@ -56,11 +71,25 @@ class SearchResult {
             this.$searchResult.insertAdjacentHTML('beforeEnd', htmlStr);
         }
 
-        this.$searchResult.querySelectorAll('.item').forEach(($item, index) => {
+        this.$cat = this.$searchResult.querySelectorAll('.item');
+        this.addClickEvt();
+
+        this.$cat.forEach(($item, index) => {
             this.observer.observe($item);
         })
     }
 
+    addClickEvt() {
+        this.$cat.forEach((cat, index) => {
+            cat.addEventListener("click", () => {
+                this.handleClick(this.data.items[index]);
+            });
+        });
+    }
+
+    handleClick(clickedItem) {
+        this.onClickImg(clickedItem)
+    }
 }
 
 export default SearchResult;

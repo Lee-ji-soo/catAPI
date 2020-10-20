@@ -1,4 +1,5 @@
 import { Select, SearchResult, Header, DarkMode } from './components';
+import SearchInfo from './components/SearchInfo';
 import { api } from './utils/api.js';
 
 class App {
@@ -14,6 +15,8 @@ class App {
             onCategory: false,
             onBreed: false,
             onNone: true,
+            clicked: {},
+            infoIsVisible: false,
         }
 
         this.breeds = [];
@@ -46,12 +49,6 @@ class App {
         });
     };
 
-    mountHeader() {
-        this.header = new Header({
-            $target: this.$header
-        })
-    }
-
     mountSelectBreed() {
         this.selectBreed = new Select({
             $app: this.$target,
@@ -72,25 +69,28 @@ class App {
         })
     };
 
-    mountResult() {
+    mountComponent() {
+        this.header = new Header({
+            $target: this.$header
+        })
+
+        this.$header.appendChild(this.$selectWrap);
+
         this.searchResult = new SearchResult({
             $target: this.$main,
             data: this.data,
-            onBottom: () => { this.onBottom(this.fetchMoreCat) }
+            onBottom: () => { this.onBottom(this.fetchMoreCat) },
+            onClickImg: (data) => { this.onClickImg(data) }
         });
-    }
 
-    mountDarkMode() {
         this.darkMode = new DarkMode({
             $target: this.$header,
         })
-    }
 
-    mountComponent() {
-        this.mountHeader();
-        this.$header.appendChild(this.$selectWrap);
-        this.mountResult();
-        this.mountDarkMode();
+        this.searchInfo = new SearchInfo({
+            $target: this.$main,
+            data: this.state
+        })
     }
 
     mountInitialCat() {
@@ -105,9 +105,17 @@ class App {
     };
 
     onBottom() {
+        console.log('bottom')
         this.data.page = this.data.page + 1;
         this.fetchMoreCat(this.data)
-        console.log(this.data.page);
+    }
+
+    onClickImg(data) {
+        this.searchInfo.setState({
+            ...this.state,
+            clicked: data,
+            infoIsVisible: true
+        });
     }
 
     onSelectBreed(selected) {
