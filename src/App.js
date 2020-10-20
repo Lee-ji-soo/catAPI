@@ -90,7 +90,7 @@ class App {
 
         this.searchResult = new SearchResult({
             $target: this.$main,
-            data: this.data,
+            data: this.data.items,
             onBottom: () => { this.onBottom(this.fetchMoreCat) },
             onClickImg: (data) => { this.onClickImg(data) }
         });
@@ -115,17 +115,19 @@ class App {
 
     onBottom() {
         this.isLoading.setState(true);
+        console.log('bottom');
         this.data.page = this.data.page + 1;
         this.fetchMoreCat(this.data)
     }
 
     onClickImg(data) {
-        this.isLoading.setState(true);
-        this.searchInfo.setState({
-            ...this.state,
-            clicked: data,
-            infoIsVisible: true
-        });
+        if (this.state.onBreed) {
+            this.searchInfo.setState({
+                ...this.state,
+                clicked: data,
+                infoIsVisible: true
+            });
+        }
     }
 
     onSelectBreed(selected) {
@@ -147,6 +149,7 @@ class App {
             items: cats ? cats : [],
             page: this.data.page
         });
+        this.isLoading.setState(false);
     }
 
     async fetchCat() {

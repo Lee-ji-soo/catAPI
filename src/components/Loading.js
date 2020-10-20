@@ -10,7 +10,6 @@ class Loading {
     }
 
     render() {
-        console.log(this.isLoading);
         this.$loading.innerHTML = `<p>now is loading...</p>`
         this.$loading.style.display = `${this.$isLoading ? 'block' : 'none'}`
     }

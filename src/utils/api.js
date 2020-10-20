@@ -5,7 +5,6 @@ const api = {
     fetchCats: async () => {
         const res = await
             fetch(`${API_ENDPOINT}/images/search?limit=12&page=10&currentPage=1&order=Desc`);
-        console.log('hi');
         return await res.json()
     },
 
