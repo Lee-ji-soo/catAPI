@@ -13,7 +13,8 @@ https://thecatapi.com/
 
 ![alt text](https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/fetchcat2.jpeg?raw=true)
 
-## Components
+## JS 
+### Components
 - [x] Select
    - [x] Category
    - [x] Breed
@@ -25,13 +26,20 @@ https://thecatapi.com/
 - [ ] Upload
 - [ ] Favorite
 
-## API
+### API
 - [x] Search & Pagination (InterSectionObserver)
 - [x] Search by Breed
 - [x] Search by Category
 - [ ] Vote
 - [ ] Upload
 
-## others
+### others
 - [x] Darkmode
-- [ ] isLoading
+- [x] isLoading
+
+## CSS
+- [ ] Header
+- [ ] Select
+- [ ] Result
+- [ ] Info
+- [ ] Loading & Lazy Loading gif
