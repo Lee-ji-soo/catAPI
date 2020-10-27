@@ -4,8 +4,9 @@ class Loading {
         this.isLoading = loading;
         this.$loading = document.createElement('section');
         this.$loading.classList.add('loading');
-        this.$target.appendChild(this.$loading);
-
+        if (this.$target) {
+            this.$target.appendChild(this.$loading);
+        }
         this.render();
     }
 

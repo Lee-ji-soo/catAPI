@@ -7,8 +7,9 @@ class App {
         this.$header = document.createElement('header');
         this.$selectWrap = document.createElement('div');
         this.$main = document.createElement('main');
-        this.$target.append(this.$header, this.$main);
-
+        if (this.$target) {
+            this.$target.append(this.$header, this.$main);
+        }
         this.state = {
             loading: false,
             onCategory: false,
@@ -153,8 +154,8 @@ class App {
         this.isLoading.setState(false);
     }
 
-    async fetchCat() {
-        const cats = await api.fetchCats();
+    async fetchCat(data = this.data) {
+        const cats = await api.fetchCats(data);
         await this.setState({
             ...this.data,
             items: cats ? cats : []

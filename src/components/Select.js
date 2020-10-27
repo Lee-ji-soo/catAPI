@@ -25,15 +25,19 @@ class Select {
         this.$selected = document.createElement('p');
         this.$selected.className = 'selected';
 
-        this.$target.appendChild(this.$selectForm);
-        this.$selectForm.append(this.$select, this.$selected);
+        if (this.$target && this.$selectForm) {
+            this.$target.appendChild(this.$selectForm);
+            this.$selectForm.append(this.$select, this.$selected);
+        }
         this.$selectList;
 
         this.init();
         this.render();
 
         //Event listener
-        this.$app.addEventListener('click', (e) => { this.handleEvt(e) });
+        if (this.$app) {
+            this.$app.addEventListener('click', (e) => { this.handleEvt(e) });
+        }
     }
 
     onShowSelect() {
