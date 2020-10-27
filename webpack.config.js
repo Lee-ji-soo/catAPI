@@ -5,7 +5,7 @@ module.exports = {
     entry: {
         main: "./src/index.js",
         vote: './src/vote.js',
-        save: './src/save.js',
+        favorite: './src/favorite.js',
     },
     output: {
         filename: "[name].js",

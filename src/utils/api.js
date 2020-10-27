@@ -74,9 +74,38 @@ const api = {
 
     fetchRandom: async () => {
         const res = await
-            fetch('https://api.thecatapi.com/v1/images/search');
+            fetch(`${API_ENDPOINT}/images/search`);
         return await res.json()
     },
+
+    fetchPostVote: async (data) => {
+        const res = await fetch(`${API_ENDPOINT}/favourites`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                "x-api-key": API_KEY
+            },
+            body: JSON.stringify({
+                "image_id": data.id,
+                "sub_id": data.user
+            })
+        });
+        console.log(res);
+        return await res.json();
+    },
+
+    fetchGetVote: async (user) => {
+        await console.log(user)
+        const res = await
+            fetch(`${API_ENDPOINT}/favourites?sub_id=${user}`, {
+                method: 'GET',
+                headers: {
+                    "x-api-key": API_KEY
+                }
+            });
+        console.log(res);
+        return await res.json()
+    }
 };
 
 export { api };

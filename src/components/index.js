@@ -5,6 +5,6 @@ import Select from './Select';
 import DarkMode from './DarkMode';
 import Loading from './Loading';
 import Random from './Random';
+import Favorite from './Favorite';
 
-
-export { Header, SearchResult, Select, DarkMode, Loading, SearchInfo, Random };
+export { Header, SearchResult, Select, DarkMode, Loading, SearchInfo, Random, Favorite };

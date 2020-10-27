@@ -1,8 +1,8 @@
 class Random {
-    constructor({ $target, data, onClickRandom }) {
+    constructor({ $target, data, onClickLike }) {
         this.$target = $target;
         this.data = data;
-        this.onClickRandom = onClickRandom;
+        this.onClickLike = onClickLike;
 
         //render random
         this.$random = document.createElement('div');
@@ -11,8 +11,6 @@ class Random {
 
         this.$img;
         this.$heart;
-
-        this.init();
     }
 
     setState(nextData) {
@@ -21,7 +19,6 @@ class Random {
     }
 
     render() {
-        console.log(this.data);
         const { 0: { id, url } } = this.data;
         const htmlStr = `
             <div class='imgwrap'>
@@ -30,23 +27,21 @@ class Random {
             <button id='heart'>❤︎</button>
             `
 
+        //selector
         this.$random.innerHTML = htmlStr;
         this.$img = this.$random.querySelector('img');
         this.$heart = this.$random.querySelector('#heart');
         this.$heart.addEventListener('click', () => { this.handleClick(id) });
 
+        //observer
         this.observer = new IntersectionObserver((item) => { this.observe(item) });
-
         this.observer.observe(this.$img);
     }
 
     handleClick(id) {
-        console.log(id);
-        this.onClickImg(id)
-    }
+        this.onClickLike(id);
 
-    init() {
-        // this.lazyloading();
+        this.$heart.style.color = 'red';
     }
 
     lazyloading(item) {
