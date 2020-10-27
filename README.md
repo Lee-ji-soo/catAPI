@@ -15,7 +15,7 @@ https://thecatapi.com/
 
 ## JS 
 ### Components
-- [ ] Navigation
+- [x] Navigation
 - [x] Select
    - [x] Category
    - [x] Breed
@@ -40,6 +40,7 @@ https://thecatapi.com/
 - [x] isLoading
 
 ## CSS
+- [ ] Navigation
 - [ ] Header
 - [ ] Select
 - [ ] Result
