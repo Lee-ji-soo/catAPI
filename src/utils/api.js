@@ -90,12 +90,10 @@ const api = {
                 "sub_id": data.user
             })
         });
-        console.log(res);
         return await res.json();
     },
 
     fetchGetVote: async (user) => {
-        await console.log(user)
         const res = await
             fetch(`${API_ENDPOINT}/favourites?sub_id=${user}`, {
                 method: 'GET',
@@ -103,7 +101,6 @@ const api = {
                     "x-api-key": API_KEY
                 }
             });
-        console.log(res);
         return await res.json()
     }
 };

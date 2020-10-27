@@ -18,10 +18,11 @@ class Favorite {
 
     render() {
         const htmlStr = this.data
-            .map((cat, index) => `<li class='item' data-index=${index}>
-                    <img data-src=${cat.image.url} alt=${cat.image.id} 
-                    src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F2ChCI%2FbtqvPbkYHXS%2FBjoh4TSXHv66xRoiu6mrr1%2Fimg.gif'/>
-                  </li>`)
+            .map((cat, index) => `
+                <li class='item' data-index=${index}>
+                     <img data-src=${cat.image.url} alt=${cat.image.id} 
+                        src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F2ChCI%2FbtqvPbkYHXS%2FBjoh4TSXHv66xRoiu6mrr1%2Fimg.gif'/>
+                </li>`)
             .join('');
 
         this.$favorite.innerHTML = htmlStr;
@@ -39,7 +40,6 @@ class Favorite {
     observe(items) {
         items.forEach(item => {
             if (item.isIntersecting) {
-                console.log(item)
                 this.lazyloading(item);
             }
         })

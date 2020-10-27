@@ -15,6 +15,7 @@ https://thecatapi.com/
 
 ## JS 
 ### Components
+- [ ] Navigation
 - [x] Select
    - [x] Category
    - [x] Breed
@@ -22,16 +23,17 @@ https://thecatapi.com/
    - [x] 무한 스크롤 
    - [x] LazyLoading
 - [x] Detail
-- [ ] Vote
-- [ ] Upload
-- [ ] Favorite
+- [x] Vote
+- [x] Favorite
+- [ ] Upload Image
 
 ### API
-- [x] Search & Pagination (InterSectionObserver)
-- [x] Search by Breed
-- [x] Search by Category
-- [ ] Vote
-- [ ] Upload
+- [x] Search & Pagination (InterSectionObserver) [GET]
+- [x] Search by Breed [GET]
+- [x] Search by Category [GET]
+- [x] Vote [POST]
+- [x] Favorite [GET]
+- [ ] Upload Image
 
 ### others
 - [x] Darkmode

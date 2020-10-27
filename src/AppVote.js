@@ -47,14 +47,6 @@ class AppVote {
         this.fetchPostVote({ ...this.state, id });
     }
 
-    onDeleteLike(id) {
-
-    }
-
-    setState(nextData) {
-
-    }
-
     async fetchRandom() {
         const data = await api.fetchRandom();
         this.data.cats = data;
