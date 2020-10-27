@@ -70,8 +70,13 @@ const api = {
                 }
             });
         return await res.json();
-    }
+    },
 
+    fetchRandom: async () => {
+        const res = await
+            fetch('https://api.thecatapi.com/v1/images/search');
+        return await res.json()
+    },
 };
 
 export { api };

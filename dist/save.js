@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/save.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -134,15 +134,15 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
-/***/ "./src/App.js":
-/*!********************!*\
-  !*** ./src/App.js ***!
-  \********************/
+/***/ "./src/AppSave.js":
+/*!************************!*\
+  !*** ./src/AppSave.js ***!
+  \************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components */ \"./src/components/index.js\");\n/* harmony import */ var _utils_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/api.js */ \"./src/utils/api.js\");\n\n\n\nclass App {\n    constructor({ $target }) {\n        this.$target = $target;\n        this.$header = document.createElement('header');\n        this.$selectWrap = document.createElement('div');\n        this.$main = document.createElement('main');\n        if (this.$target) {\n            this.$target.append(this.$header, this.$main);\n        }\n        this.state = {\n            loading: false,\n            onCategory: false,\n            onBreed: false,\n            onNone: true,\n            clicked: {},\n            infoIsVisible: false,\n        }\n\n        this.breeds = [];\n        this.categories = [];\n\n        this.data = {\n            items: [],\n            breed: 'None',\n            category: 0,\n            page: 1,\n        }\n\n        this.searchResult;\n        this.selectBreed;\n        this.selectCategory;\n        this.onSelect;\n\n        this.init();\n    };\n\n    setState(nextData) {\n        this.data = {\n            ...this.data,\n            items: nextData.items\n        }\n\n        this.isLoading.setState(false);\n\n        this.searchResult.setState({\n            ...this.data,\n            items: nextData.items ? nextData.items : [],\n            page: this.data.page\n        });\n    };\n\n    mountSelectBreed() {\n        this.selectBreed = new _components__WEBPACK_IMPORTED_MODULE_0__[\"Select\"]({\n            $app: this.$target,\n            $target: this.$selectWrap,\n            selections: this.breeds,\n            title: 'Breed',\n            onSelectBreed: (selected) => { this.onSelectBreed(selected) },\n        })\n    }\n\n    mountSelectCategory() {\n        this.selectCategory = new _components__WEBPACK_IMPORTED_MODULE_0__[\"Select\"]({\n            $app: this.$target,\n            $target: this.$selectWrap,\n            selections: this.categories,\n            title: 'Category',\n            onSelectCategory: (selected) => { this.onSelectCategory(selected) },\n        })\n    };\n\n    mountComponent() {\n\n        this.header = new _components__WEBPACK_IMPORTED_MODULE_0__[\"Header\"]({\n            $target: this.$header\n        })\n\n        this.isLoading = new _components__WEBPACK_IMPORTED_MODULE_0__[\"Loading\"]({\n            $target: this.$target,\n            loading: this.state.loading\n        })\n\n        this.darkMode = new _components__WEBPACK_IMPORTED_MODULE_0__[\"DarkMode\"]({\n            $target: this.$header,\n        })\n\n        this.$header.appendChild(this.$selectWrap);\n\n        this.searchResult = new _components__WEBPACK_IMPORTED_MODULE_0__[\"SearchResult\"]({\n            $target: this.$main,\n            data: this.data.items,\n            onBottom: () => { this.onBottom(this.fetchMoreCat) },\n            onClickImg: (data) => { this.onClickImg(data) }\n        });\n\n        this.searchInfo = new _components__WEBPACK_IMPORTED_MODULE_0__[\"SearchInfo\"]({\n            $target: this.$main,\n            data: this.state\n        })\n\n    }\n\n    mountInitialCat() {\n        this.fetchInitialCategories();\n        this.fetchInitialBreeds();\n    }\n\n    init() {\n        this.mountInitialCat();\n        this.mountComponent();\n        this.fetchCat({ data: this.data });\n    };\n\n    onBottom() {\n        this.isLoading.setState(true);\n        this.data.page = this.data.page + 1;\n        this.fetchMoreCat(this.data)\n    }\n\n    onClickImg(data) {\n        if (this.state.onBreed) {\n            this.searchInfo.setState({\n                ...this.state,\n                clicked: data,\n                infoIsVisible: true\n            });\n        }\n    }\n\n    onSelectBreed(selected) {\n        this.isLoading.setState(true);\n        this.data.breed = selected;\n        this.fetchBreed({ breed: this.data.breed });\n    }\n\n    onSelectCategory(selected) {\n        this.isLoading.setState(true);\n        this.data.category = selected;\n        this.fetchCategory({ category: this.data.category })\n    }\n\n    async fetchMoreCat(data = this.data, state = this.state) {\n        const cats = await _utils_api_js__WEBPACK_IMPORTED_MODULE_1__[\"api\"].fetchMoreCat(data, state);\n        if (cats.length > 1) {\n            this.searchResult.setState({\n                ...this.data,\n                items: cats ? cats : [],\n                page: this.data.page\n            });\n        }\n        this.isLoading.setState(false);\n    }\n\n    async fetchCat(data = this.data) {\n        const cats = await _utils_api_js__WEBPACK_IMPORTED_MODULE_1__[\"api\"].fetchCats(data);\n        await this.setState({\n            ...this.data,\n            items: cats ? cats : []\n        });\n    }\n\n    async fetchInitialCategories() {\n        const categories = await _utils_api_js__WEBPACK_IMPORTED_MODULE_1__[\"api\"].fetchInitialCategories();\n        this.categories = categories;\n        this.data.category = categories[0];\n        this.mountSelectCategory();\n    }\n\n    async fetchInitialBreeds() {\n        const breeds = await _utils_api_js__WEBPACK_IMPORTED_MODULE_1__[\"api\"].fetchInitialBreeds();\n        this.breeds = breeds;\n        this.data.breeds = breeds[0];\n        this.mountSelectBreed();\n    }\n\n    async fetchBreed({ breed }) {\n        this.state = {\n            ...this.state,\n            onCategory: false,\n            onBreed: true,\n            onNone: false,\n        }\n        this.data = {\n            ...this.data,\n            page: 1\n        }\n        const cats = await _utils_api_js__WEBPACK_IMPORTED_MODULE_1__[\"api\"].fetchBreed(breed);\n        await this.setState({\n            ...this.data,\n            items: cats ? cats : []\n        })\n    }\n\n    async fetchCategory({ category }) {\n        this.state = {\n            ...this.state,\n            onCategory: true,\n            onBreed: false,\n            onNone: false,\n        }\n        this.data = {\n            ...this.data,\n            page: 1\n        }\n        const cats = await _utils_api_js__WEBPACK_IMPORTED_MODULE_1__[\"api\"].fetchCategory(category);\n        await this.setState({\n            ...this.data,\n            items: cats ? cats : []\n        });\n    }\n\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n\n\n//# sourceURL=webpack:///./src/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components */ \"./src/components/index.js\");\n/* harmony import */ var _utils_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/api.js */ \"./src/utils/api.js\");\n\n\n\nclass AppSave {\n    constructor({ $target }) {\n        this.$target = $target;\n        this.$header = document.createElement('header');\n        this.$main = document.createElement('main');\n        this.$target.append(this.$header, this.$main);\n        this.init();\n    }\n\n    mountComponent() {\n        this.header = new _components__WEBPACK_IMPORTED_MODULE_0__[\"Header\"]({\n            $target: this.$header\n        })\n\n        this.darkMode = new _components__WEBPACK_IMPORTED_MODULE_0__[\"DarkMode\"]({\n            $target: this.$header\n        })\n    }\n\n    init() {\n        this.mountComponent();\n    }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (AppSave);\n\n\n//# sourceURL=webpack:///./src/AppSave.js?");
 
 /***/ }),
 
@@ -242,15 +242,15 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Hea
 
 /***/ }),
 
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/***/ "./src/save.js":
+/*!*********************!*\
+  !*** ./src/save.js ***!
+  \*********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _App_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.js */ \"./src/App.js\");\n\nconst css = __webpack_require__(/*! ./scss/index.scss */ \"./src/scss/index.scss\");\n\nnew _App_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n    $target: document.querySelector(\"#App\")\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _AppSave_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppSave.js */ \"./src/AppSave.js\");\n\nconst css = __webpack_require__(/*! ./scss/index.scss */ \"./src/scss/index.scss\");\n\nnew _AppSave_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n    $target: document.querySelector('#Save'),\n});\n\n\n//# sourceURL=webpack:///./src/save.js?");
 
 /***/ }),
 

@@ -5,6 +5,7 @@ module.exports = {
     entry: {
         main: "./src/index.js",
         vote: './src/vote.js',
+        save: './src/save.js',
     },
     output: {
         filename: "[name].js",
@@ -16,16 +17,6 @@ module.exports = {
                 test: /\.(scss)$/,
                 use: ['style-loader', 'css-loader', 'sass-loader']
             },
-            // {
-            //     test: /\.html$/,
-            //     use: [{
-            //         loader: 'file-loader',
-            //         options: {
-            //             name: '[name].[ext]'
-            //         }
-            //     }],
-            //     exclude: path.resolve(__dirname, './dist/index.html')
-            // }
         ]
     },
     resolve: {
