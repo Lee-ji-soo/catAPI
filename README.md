@@ -37,6 +37,7 @@ https://thecatapi.com/
 - [x] isLoading
 
 ## CSS
+- [x] Home
 - [ ] Navigation
 - [ ] Header
 - [ ] Select

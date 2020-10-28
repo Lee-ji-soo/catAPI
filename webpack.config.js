@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
     mode: 'development',
     entry: {
-        main: "./src/index.js",
+        index: './src/index.js',
+        category: "./src/category.js",
         breed: './src/breed.js',
         vote: './src/vote.js',
         favorite: './src/favorite.js',
@@ -25,7 +26,7 @@ module.exports = {
     },
     devServer: {
         contentBase: "./dist",
-        port: 3000,
+        port: 8000,
         historyApiFallback: true,
     }
 
