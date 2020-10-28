@@ -12,9 +12,9 @@ class Header {
     render() {
         this.$nav.innerHTML = `
             <li><a href='/index.html'>HOME</a></li>
+            <li><a href='/breed.html'>BREEDS</a></li>
             <li><a href='/vote.html'>VOTE</a></li>
             <li><a href='/favorite.html'>FAVORITE</a></li>
-            <li><a href='/upload.html'>UPLOAD</a></li>
         `
         this.$header.innerText = 'LOVELY CAT'
     }

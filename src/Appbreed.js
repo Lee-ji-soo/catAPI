@@ -1,7 +1,7 @@
 import { Select, SearchResult, SearchInfo, Header, DarkMode, Loading } from './components';
 import { api } from './utils/api.js';
 
-class App {
+class AppBreed {
     constructor({ $target }) {
         this.$target = $target;
         this.$header = document.createElement('header');
@@ -52,15 +52,15 @@ class App {
         });
     };
 
-    mountSelectCategory() {
-        this.selectCategory = new Select({
+    mountSelectBreed() {
+        this.selectBreed = new Select({
             $app: this.$target,
             $target: this.$selectWrap,
-            selections: this.categories,
-            title: 'Category',
-            onSelectCategory: (selected) => { this.onSelectCategory(selected) },
+            selections: this.breeds,
+            title: 'Breed',
+            onSelectBreed: (selected) => { this.onSelectBreed(selected) },
         })
-    };
+    }
 
     mountComponent() {
 
@@ -94,7 +94,7 @@ class App {
     }
 
     mountInitialCat() {
-        this.fetchInitialCategories();
+        this.fetchInitialBreeds();
     }
 
     init() {
@@ -119,10 +119,10 @@ class App {
         }
     }
 
-    onSelectCategory(selected) {
+    onSelectBreed(selected) {
         this.isLoading.setState(true);
-        this.data.category = selected;
-        this.fetchCategory({ category: this.data.category })
+        this.data.breed = selected;
+        this.fetchBreed({ breed: this.data.breed });
     }
 
     async fetchMoreCat(data = this.data, state = this.state) {
@@ -145,31 +145,31 @@ class App {
         });
     }
 
-    async fetchInitialCategories() {
-        const categories = await api.fetchInitialCategories();
-        this.categories = categories;
-        this.data.category = categories[0];
-        this.mountSelectCategory();
+    async fetchInitialBreeds() {
+        const breeds = await api.fetchInitialBreeds();
+        this.breeds = breeds;
+        this.data.breeds = breeds[0];
+        this.mountSelectBreed();
     }
 
-    async fetchCategory({ category }) {
+    async fetchBreed({ breed }) {
         this.state = {
             ...this.state,
-            onCategory: true,
-            onBreed: false,
+            onCategory: false,
+            onBreed: true,
             onNone: false,
         }
         this.data = {
             ...this.data,
             page: 1
         }
-        const cats = await api.fetchCategory(category);
+        const cats = await api.fetchBreed(breed);
         await this.setState({
             ...this.data,
             items: cats ? cats : []
-        });
+        })
     }
 
 }
-export default App;
+export default AppBreed;
 

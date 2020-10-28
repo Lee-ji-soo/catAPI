@@ -4,6 +4,7 @@ module.exports = {
     mode: 'development',
     entry: {
         main: "./src/index.js",
+        breed: './src/breed.js',
         vote: './src/vote.js',
         favorite: './src/favorite.js',
     },
