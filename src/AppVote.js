@@ -15,7 +15,8 @@ class AppVote {
 
         this.state = {
             id: '',
-            user: 'soo'
+            user: 'soo',
+            path: 4,
         };
 
         this.init();
@@ -41,6 +42,11 @@ class AppVote {
     init() {
         this.mountComponent();
         this.fetchRandom();
+        this.setPath();
+    }
+
+    setPath() {
+        this.header.setState(this.state.path);
     }
 
     onClickLike(id) {

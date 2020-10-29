@@ -12,7 +12,8 @@ class AppFav {
 
         this.state = {
             loading: false,
-            user: 'soo'
+            user: 'soo',
+            path: 5,
         };
 
         this.isLoading = new Loading({
@@ -42,6 +43,11 @@ class AppFav {
     init() {
         this.mountComponent();
         this.fetchGetVote();
+        this.setPath();
+    }
+
+    setPath() {
+        this.header.setState(this.state.path);
     }
 
     onDelete(id) {

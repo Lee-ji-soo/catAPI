@@ -1,6 +1,8 @@
 class Header {
-    constructor({ $target }) {
+    constructor({ $target, path }) {
         this.$target = $target;
+        this.path = path;
+
         this.$nav = document.createElement('ul');
         this.$hamburger = document.createElement('section');
         this.$hamburger.className = 'hamburger-open';
@@ -9,9 +11,7 @@ class Header {
         this.$target.append(this.$hamburger, this.$nav);
 
         this.isOpen = false;
-
         this.$hamburger.addEventListener('click', this.handleHamburger.bind(this))
-
         this.render()
     }
 
@@ -41,14 +41,28 @@ class Header {
             <div class='btn_line'></div>
         `
         this.$nav.innerHTML = `
-            <li><a href='/catch.html'>CATCH CAT</a></li>
-            <li><a href='/category.html'>CATEGORY</a></li>
-            <li><a href='/breed.html'>BREEDS</a></li>
-            <li><a href='/vote.html'>VOTE</a></li>
-            <li><a href='/favorite.html'>FAVORITE</a></li>
+            <li data-path='1'><a href='/catch.html'>CATCH CAT</a></li>
+            <li data-path='2'><a href='/category.html'>CATEGORY</a></li>
+            <li data-path='3'><a href='/breed.html'>BREEDS</a></li>
+            <li data-path='4'><a href='/vote.html'>VOTE</a></li>
+            <li data-path='5'><a href='/favorite.html'>FAVORITE</a></li>
         `
-
         this.$navLi = this.$nav.querySelectorAll('li');
+    }
+
+    pointPath() {
+        this.$navLi.forEach(li => {
+            if (Number(li.dataset.path) === this.path) {
+                li.classList.add('active');
+            } else {
+                li.classList.remove('active');
+            }
+        })
+    }
+
+    setState(nextPath) {
+        this.path = nextPath;
+        this.pointPath();
     }
 };
 

@@ -5,13 +5,11 @@ class App {
         this.$target = $target;
         this.$h1 = document.createElement('h1');
         this.$target.append(this.$h1);
-
         this.init();
     }
 
     init() {
         this.$h1.innerHTML = '<a href="/catch.html">CATCH CAT </a>';
-
         for (let i = 0; i < 2; i++) {
             this.mountRollingText(i);
         }

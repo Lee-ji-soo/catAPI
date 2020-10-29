@@ -17,6 +17,7 @@ class AppBreed {
             onNone: true,
             clicked: {},
             infoIsVisible: false,
+            path: 3,
         }
 
         this.breeds = [];
@@ -99,7 +100,12 @@ class AppBreed {
         this.mountInitialCat();
         this.mountComponent();
         this.fetchCat({ data: this.data });
+        this.setPath();
     };
+
+    setPath() {
+        this.header.setState(this.state.path);
+    }
 
     onBottom() {
         this.isLoading.setState(true);

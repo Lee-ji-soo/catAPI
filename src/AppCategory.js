@@ -17,6 +17,7 @@ class AppCategory {
             onNone: true,
             clicked: {},
             infoIsVisible: false,
+            path: 2,
         }
 
         this.breeds = [];
@@ -98,7 +99,12 @@ class AppCategory {
         this.mountInitialCat();
         this.mountComponent();
         this.fetchCat({ data: this.data });
+        this.setPath();
     };
+
+    setPath() {
+        this.header.setState(this.state.path);
+    }
 
     onBottom() {
         this.isLoading.setState(true);

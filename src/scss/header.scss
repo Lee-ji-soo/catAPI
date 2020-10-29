@@ -14,7 +14,6 @@ body{
             gap:0;
             font-size:$navFontSize;
             border-bottom:2px solid var(--font-color);
-
             li{
                 align-self: center;
                 text-align:center;
@@ -26,6 +25,17 @@ body{
                 &:hover{
                     animation:arr2 0.3s infinite;  
                 }
+                &.active{
+                    &:after{
+                       content:'●';
+                       font-size:2rem;
+                       text-align:center;
+                       vertical-align:center;
+                       padding-left:.3rem;
+                       color:tomato;
+                    }
+                }
+
             }
         }
         

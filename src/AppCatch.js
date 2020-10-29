@@ -17,6 +17,7 @@ class AppCatch {
             onNone: true,
             clicked: {},
             infoIsVisible: false,
+            path: 1,
         }
 
         this.data = {
@@ -42,7 +43,8 @@ class AppCatch {
 
     mountComponent() {
         this.header = new Header({
-            $target: this.$header
+            $target: this.$header,
+            path: this.state.path
         })
 
         this.darkMode = new DarkMode({
@@ -59,11 +61,16 @@ class AppCatch {
     init() {
         this.mountComponent();
         this.fetchCat({ data: this.data });
+        this.setPath();
     };
 
     onBottom() {
         this.data.page = this.data.page + 1;
         this.fetchMoreCat(this.data)
+    }
+
+    setPath() {
+        this.header.setState(this.state.path);
     }
 
     async fetchMoreCat(data = this.data, state = this.state) {
