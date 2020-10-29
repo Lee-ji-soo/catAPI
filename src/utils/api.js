@@ -102,6 +102,17 @@ const api = {
                 }
             });
         return await res.json()
+    },
+
+    fetchDeleteVote: async (id) => {
+        const res = await
+            fetch(`${API_ENDPOINT}/favourites/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    "x-api-key": API_KEY
+                }
+            });
+        return await res.json()
     }
 };
 

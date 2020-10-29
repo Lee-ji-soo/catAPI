@@ -31,6 +31,7 @@ https://thecatapi.com/
 - [x] Search by Category [GET]
 - [x] Vote [POST]
 - [x] Favorite [GET]
+- [x] Delete Favorite [DELETE]
 
 ### others
 - [x] Darkmode

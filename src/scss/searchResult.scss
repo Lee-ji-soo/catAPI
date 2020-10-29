@@ -1,24 +1,46 @@
-#App, #Favorite, #Breed{
+#App, #Category, #Favorite, #Breed{
     main{
         ul{
-            width:100%;
-            height:100%;
-            display:grid;
-            grid-template-columns: repeat(2,1fr);
-            grid-auto-rows:350px;
-            gap:5px 5px;
-            
+            width:100%;            
+            column-count: 3;
+            -webkit-column-count:3;
+
             li{
                 width:100%;
-                height:100%;
-                overflow: hidden;
+                height:auto;
+                padding-bottom:.3rem;
                 img{
                     width:100%;
                     min-width:100%;
                     height:auto;
-                    min-height:350px;
+                }
+                button{
+                    cursor:pointer;
                 }
             }
-        }
+        } 
     }
+}
+
+@media screen and (max-width:992px){
+}
+
+@media screen and (max-width:768px){
+  #Favorite{ 
+          main{
+              ul {
+                  column-count: 2;
+                  }
+              }
+          }
+}
+
+@media screen and (max-width:576px){
+  #Favorite{ 
+      main{
+          ul {
+              column-count: 1;
+              }
+          }
+      }
 }

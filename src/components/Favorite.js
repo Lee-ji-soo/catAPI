@@ -1,7 +1,8 @@
 class Favorite {
-    constructor({ $target, data }) {
+    constructor({ $target, data, onDelete }) {
         this.data = data;
         this.$target = $target;
+        this.onDelete = onDelete;
 
         //render cats
         this.$favorite = document.createElement("ul");
@@ -9,6 +10,8 @@ class Favorite {
         this.$target.appendChild(this.$favorite);
 
         this.$cat;
+        this.$deleteBtn;
+
         this.observer = new IntersectionObserver((items) => { this.observe(items) })
     }
     setState(nextData) {
@@ -22,15 +25,24 @@ class Favorite {
                 <li class='item' data-index=${index}>
                      <img data-src=${cat.image.url} alt=${cat.image.id} 
                         src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F2ChCI%2FbtqvPbkYHXS%2FBjoh4TSXHv66xRoiu6mrr1%2Fimg.gif'/>
+                    <button data-id=${cat.id} class='delete'>X</button>
                 </li>`)
             .join('');
 
         this.$favorite.innerHTML = htmlStr;
         this.$cat = this.$favorite.querySelectorAll('.item');
+        this.$deleteBtn = this.$favorite.querySelectorAll('.delete');
 
         this.$cat.forEach(($item) => {
             this.observer.observe($item);
         })
+
+        this.$deleteBtn.forEach(btn => { btn.addEventListener('click', (e) => { this.handleClick(e, this.onDelete) }) });
+    }
+
+    handleClick(e, onDelete) {
+        const { target: { dataset: { id } } } = e;
+        onDelete(id);
     }
 
     lazyloading(item) {
