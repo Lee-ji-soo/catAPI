@@ -5,10 +5,11 @@
 @import 'vote';
 @import 'home';
 @import './colormode.css';
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Black+Han+Sans&display=swap');
 
 @font-face{
     font-family: 'VT323', monospace;
+    font-family: 'Black Han Sans', sans-serif;
     src:url('https://fonts.googleapis.com/css2?family=VT323&display=swap')
 };
 

@@ -45,7 +45,8 @@ class SearchResult {
         this.page = nextData.page;
 
         if (this.page !== 1) {
-            this.data = this.data.concat(nextData.items);
+            const newArray = this.data.concat(nextData.items);
+            this.data = Array.from(new Set(newArray));
         } else {
             this.data = nextData.items
         }
@@ -53,16 +54,23 @@ class SearchResult {
     }
 
     render() {
-        const htmlStr = this.data
-            .map((cat, index) => `<li class='item' data-index=${index}>
+        let htmlStr;
+        if (this.data.length === 0) {
+            htmlStr = `<div id='empty'>
+                            <span>카테고리를 선택해 주세냐옹<span>
+                       </div>`
+        } else {
+            htmlStr = this.data
+                .map((cat, index) => `<li class='item' data-index=${index}>
                     <img data-src=${cat.url} alt=${cat.name} 
                     src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F2ChCI%2FbtqvPbkYHXS%2FBjoh4TSXHv66xRoiu6mrr1%2Fimg.gif'/>
                   </li>`)
-            .join('');
+                .join('');
+        }
 
         if (this.page === 1) {
             this.$searchResult.innerHTML = htmlStr;
-        } else {
+        } else if (this.page > 1) {
             this.$searchResult.insertAdjacentHTML('beforeEnd', htmlStr);
         }
 

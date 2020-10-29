@@ -31,16 +31,23 @@
                     font-size:$navFontSize;
                     padding:$listPaddingTB;
                     text-align: center;
+                    line-height:1rem;
                     border-right: 1px solid var(--font-color);
                     &:last-child{
                         border:none;
+                    }
+                    &.active{
+                        text-decoration:underline dotted green;
+                        // &:after{
+                        //     content:'∙';
+                        //     color:green;
+                        // }
                     }
                }
            }
         }
     }
 }
-
 
 #Breed{
     main{

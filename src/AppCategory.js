@@ -83,43 +83,27 @@ class AppCategory {
             onBottom: () => { this.onBottom(this.fetchMoreCat) },
             onClickImg: (data) => { this.onClickImg(data) }
         });
-
-        this.searchInfo = new SearchInfo({
-            $target: this.$main,
-            data: this.state
-        })
-
-    }
-
-    mountInitialCat() {
-        this.fetchInitialCategories();
     }
 
     init() {
-        this.mountInitialCat();
+        this.fetchInitialCategories();
         this.mountComponent();
-        this.fetchCat({ data: this.data });
         this.setPath();
+        this.render();
     };
 
     setPath() {
         this.header.setState(this.state.path);
     }
 
+    render() {
+        this.searchResult.setState({ page: 1, items: [] });
+    }
+
     onBottom() {
         this.isLoading.setState(true);
         this.data.page = this.data.page + 1;
         this.fetchMoreCat(this.data)
-    }
-
-    onClickImg(data) {
-        if (this.state.onBreed) {
-            this.searchInfo.setState({
-                ...this.state,
-                clicked: data,
-                infoIsVisible: true
-            });
-        }
     }
 
     onSelectCategory(selected) {
@@ -138,14 +122,6 @@ class AppCategory {
             });
         }
         this.isLoading.setState(false);
-    }
-
-    async fetchCat(data = this.data) {
-        const cats = await api.fetchCats(data);
-        await this.setState({
-            ...this.data,
-            items: cats ? cats : []
-        });
     }
 
     async fetchInitialCategories() {

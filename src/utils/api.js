@@ -11,9 +11,9 @@ const api = {
     fetchMoreCat: async (data, state) => {
         const newState = () => {
             if (state.onCategory === true) {
-                return `category_ids=${data.category.id}`
+                return `category_ids=${data.category}`
             } else if (state.onBreed === true) {
-                return `breed_id=${data.breed.id}`
+                return `breed_id=${data.breed}`
             } else if (state.onNone === true) {
                 return ''
             }
@@ -52,7 +52,7 @@ const api = {
 
     fetchCategory: async (category) => {
         const res = await
-            fetch(`${API_ENDPOINT}/images/search?category_ids=${category.id}&limit=12&page=10`, {
+            fetch(`${API_ENDPOINT}/images/search?category_ids=${category}&limit=12&page=10`, {
                 method: 'GET',
                 headers: {
                     "x-api-key": API_KEY

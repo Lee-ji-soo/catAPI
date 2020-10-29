@@ -8,6 +8,7 @@ class Select {
         this.onSelectBreed = onSelectBreed;
 
         this.state = {
+            id: 0,
             list: this.selections,
             show: false,
             selected: this.selections[0]
@@ -52,10 +53,12 @@ class Select {
         this.$selectList.forEach(list => {
             if (e.target === list) {
                 this.addItem(e, name = list.innerText);
-                return
+                this.state.id = e.target.parentNode.dataset.select;
+                return;
             }
         })
         this.onHiddenSelect();
+        this.handleActive();
         this.addItem(e);
     }
 
@@ -77,13 +80,24 @@ class Select {
 
     render() {
         const htmlStr = this.state.list.map(item =>
-            `<li><p class='selectList ${this.selectTitle}'>${item.name}</p></li>`
+            `<li data-select=${item.id}><p class='selectList ${this.selectTitle}'>${item.name}</p></li>`
         ).join('');
 
         this.$select.innerHTML = htmlStr;
         this.$selectList = this.$select.querySelectorAll('.selectList');
 
         this.$selected.innerText = this.state.selected.name;
+    }
+
+    handleActive() {
+        this.$selectList.forEach(p => {
+            if (p.parentNode.dataset.select === this.state.id) {
+                console.log('true', p.parentNode);
+                p.parentNode.classList.add('active');
+            } else {
+                p.parentNode.classList.remove('active');
+            }
+        });
     }
 
     addItem(e, name) {
@@ -93,14 +107,13 @@ class Select {
             }
         })
         this.seperateEvt(e);
-        this.render();
     }
 
     seperateEvt(e) {
         if (e.target.classList.contains('Breed') && this.onSelectBreed) {
-            this.onSelectBreed(this.state.selected);
+            this.onSelectBreed(this.state.id);
         } else if (e.target.classList.contains('Category') && this.onSelectCategory) {
-            this.onSelectCategory(this.state.selected);
+            this.onSelectCategory(this.state.id);
             return;
         }
     }
