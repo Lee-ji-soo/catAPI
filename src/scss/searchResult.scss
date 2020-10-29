@@ -1,4 +1,4 @@
-#App, #Category, #Favorite, #Breed{
+body{
     main{
         ul{
             width:100%;            
@@ -26,9 +26,9 @@
 }
 
 @media screen and (max-width:768px){
-  #Favorite{ 
-          main{
-              ul {
+  body{
+       main{
+            .SearchResult {
                   column-count: 2;
                   }
               }
@@ -36,9 +36,9 @@
 }
 
 @media screen and (max-width:576px){
-  #Favorite{ 
+  body{ 
       main{
-          ul {
+          .SearchResult {
               column-count: 1;
               }
           }

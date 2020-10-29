@@ -63,7 +63,6 @@ class AppCategory {
     };
 
     mountComponent() {
-
         this.header = new Header({
             $target: this.$header
         })
