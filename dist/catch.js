@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/favorite.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/catch.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -134,15 +134,27 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
-/***/ "./src/AppFav.js":
-/*!***********************!*\
-  !*** ./src/AppFav.js ***!
-  \***********************/
+/***/ "./src/AppCatch.js":
+/*!*************************!*\
+  !*** ./src/AppCatch.js ***!
+  \*************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components */ \"./src/components/index.js\");\n/* harmony import */ var _utils_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/api.js */ \"./src/utils/api.js\");\n\n\n\nclass AppFav {\n    constructor({ $target }) {\n        this.$target = $target;\n        this.$header = document.createElement('header');\n        this.$main = document.createElement('main');\n        this.$target.append(this.$header, this.$main);\n\n        this.data = [];\n\n        this.state = {\n            loading: false,\n            user: 'soo'\n        };\n\n        this.isLoading = new _components__WEBPACK_IMPORTED_MODULE_0__[\"Loading\"]({\n            $target: this.$target,\n            loading: this.state.loading\n        })\n\n        this.init();\n    }\n\n    mountComponent() {\n        this.header = new _components__WEBPACK_IMPORTED_MODULE_0__[\"Header\"]({\n            $target: this.$header\n        })\n\n        this.darkMode = new _components__WEBPACK_IMPORTED_MODULE_0__[\"DarkMode\"]({\n            $target: this.$header\n        })\n\n        this.favorite = new _components__WEBPACK_IMPORTED_MODULE_0__[\"Favorite\"]({\n            $target: this.$main,\n            data: [],\n            onDelete: (id) => { this.onDelete(id) }\n        })\n    }\n\n    init() {\n        this.mountComponent();\n        this.fetchGetVote();\n    }\n\n    onDelete(id) {\n        this.isLoading.setState(true);\n        this.fetchDeleteVote(id);\n    }\n\n    setState(nextData) {\n        this.data = nextData;\n        this.favorite.setState(this.data);\n    }\n\n    async fetchGetVote() {\n        const data = await _utils_api_js__WEBPACK_IMPORTED_MODULE_1__[\"api\"].fetchGetVote(this.state.user);\n        await this.setState(data);\n    }\n\n    async fetchDeleteVote(id) {\n        await _utils_api_js__WEBPACK_IMPORTED_MODULE_1__[\"api\"].fetchDeleteVote(id);\n        await this.fetchGetVote();\n        this.isLoading.setState(false);\n    }\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (AppFav);\n\n\n//# sourceURL=webpack:///./src/AppFav.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components */ \"./src/components/index.js\");\n/* harmony import */ var _utils_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/api.js */ \"./src/utils/api.js\");\n\n\n\nclass AppCatch {\n    constructor({ $target }) {\n        this.$target = $target;\n        this.$header = document.createElement('header');\n        this.$selectWrap = document.createElement('div');\n        this.$main = document.createElement('main');\n        this.$target.append(this.$header, this.$main);\n        this.$main.appendChild(this.$selectWrap);\n\n        this.state = {\n            loading: false,\n            onCategory: false,\n            onBreed: false,\n            onNone: true,\n            clicked: {},\n            infoIsVisible: false,\n        }\n\n        this.data = {\n            items: [],\n            page: 1,\n            category: 0,\n            page: 1,\n        }\n        this.init();\n    };\n\n    setState(nextData) {\n        this.data = {\n            ...this.data,\n            items: nextData.items\n        }\n        this.searchResult.setState({\n            ...this.data,\n            items: nextData.items ? nextData.items : [],\n            page: this.data.page\n        });\n    };\n\n    mountComponent() {\n        this.header = new _components__WEBPACK_IMPORTED_MODULE_0__[\"Header\"]({\n            $target: this.$header\n        })\n\n        this.darkMode = new _components__WEBPACK_IMPORTED_MODULE_0__[\"DarkMode\"]({\n            $target: this.$header,\n        })\n\n        this.searchResult = new _components__WEBPACK_IMPORTED_MODULE_0__[\"SearchResult\"]({\n            $target: this.$main,\n            data: this.data.items,\n            onBottom: () => { this.onBottom(this.fetchMoreCat) },\n        });\n    }\n\n    init() {\n        this.mountComponent();\n        this.fetchCat({ data: this.data });\n    };\n\n    onBottom() {\n        this.data.page = this.data.page + 1;\n        this.fetchMoreCat(this.data)\n    }\n\n    async fetchMoreCat(data = this.data, state = this.state) {\n        const cats = await _utils_api_js__WEBPACK_IMPORTED_MODULE_1__[\"api\"].fetchMoreCat(data, state);\n        if (cats.length > 1) {\n            this.searchResult.setState({\n                ...this.data,\n                items: cats ? cats : [],\n                page: this.data.page\n            });\n        }\n    }\n\n    async fetchCat(data = this.data) {\n        const cats = await _utils_api_js__WEBPACK_IMPORTED_MODULE_1__[\"api\"].fetchCats(data);\n        await this.setState({\n            ...this.data,\n            items: cats ? cats : []\n        });\n    }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (AppCatch);\n\n\n\n//# sourceURL=webpack:///./src/AppCatch.js?");
+
+/***/ }),
+
+/***/ "./src/catch.js":
+/*!**********************!*\
+  !*** ./src/catch.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _AppCatch_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppCatch.js */ \"./src/AppCatch.js\");\n\nconst css = __webpack_require__(/*! ./scss/index.scss */ \"./src/scss/index.scss\");\n\nnew _AppCatch_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n    $target: document.querySelector(\"#Catch\")\n});\n\n\n//# sourceURL=webpack:///./src/catch.js?");
 
 /***/ }),
 
@@ -263,18 +275,6 @@ eval("__webpack_require__.r(__webpack_exports__);\nclass Select {\n    construct
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Header */ \"./src/components/Header.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"Header\", function() { return _Header__WEBPACK_IMPORTED_MODULE_0__[\"default\"]; });\n\n/* harmony import */ var _SearchResult__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchResult */ \"./src/components/SearchResult.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"SearchResult\", function() { return _SearchResult__WEBPACK_IMPORTED_MODULE_1__[\"default\"]; });\n\n/* harmony import */ var _SearchInfo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchInfo */ \"./src/components/SearchInfo.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"SearchInfo\", function() { return _SearchInfo__WEBPACK_IMPORTED_MODULE_2__[\"default\"]; });\n\n/* harmony import */ var _Select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Select */ \"./src/components/Select.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"Select\", function() { return _Select__WEBPACK_IMPORTED_MODULE_3__[\"default\"]; });\n\n/* harmony import */ var _DarkMode__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./DarkMode */ \"./src/components/DarkMode.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"DarkMode\", function() { return _DarkMode__WEBPACK_IMPORTED_MODULE_4__[\"default\"]; });\n\n/* harmony import */ var _Loading__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Loading */ \"./src/components/Loading.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"Loading\", function() { return _Loading__WEBPACK_IMPORTED_MODULE_5__[\"default\"]; });\n\n/* harmony import */ var _Random__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Random */ \"./src/components/Random.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"Random\", function() { return _Random__WEBPACK_IMPORTED_MODULE_6__[\"default\"]; });\n\n/* harmony import */ var _Favorite__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Favorite */ \"./src/components/Favorite.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"Favorite\", function() { return _Favorite__WEBPACK_IMPORTED_MODULE_7__[\"default\"]; });\n\n/* harmony import */ var _RollingText__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./RollingText */ \"./src/components/RollingText.js\");\n/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, \"RollingText\", function() { return _RollingText__WEBPACK_IMPORTED_MODULE_8__[\"default\"]; });\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n//# sourceURL=webpack:///./src/components/index.js?");
-
-/***/ }),
-
-/***/ "./src/favorite.js":
-/*!*************************!*\
-  !*** ./src/favorite.js ***!
-  \*************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _AppFav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AppFav.js */ \"./src/AppFav.js\");\n\nconst css = __webpack_require__(/*! ./scss/index.scss */ \"./src/scss/index.scss\");\n\nnew _AppFav_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({\n    $target: document.querySelector('#Favorite'),\n});\n\n\n//# sourceURL=webpack:///./src/favorite.js?");
 
 /***/ }),
 

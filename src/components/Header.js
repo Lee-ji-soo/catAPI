@@ -41,7 +41,7 @@ class Header {
             <div class='btn_line'></div>
         `
         this.$nav.innerHTML = `
-            <li><a href='/index.html'>CATCH CAT</a></li>
+            <li><a href='/catch.html'>CATCH CAT</a></li>
             <li><a href='/category.html'>CATEGORY</a></li>
             <li><a href='/breed.html'>BREEDS</a></li>
             <li><a href='/vote.html'>VOTE</a></li>

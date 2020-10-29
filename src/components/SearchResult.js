@@ -49,7 +49,6 @@ class SearchResult {
         } else {
             this.data = nextData.items
         }
-
         this.render();
     }
 

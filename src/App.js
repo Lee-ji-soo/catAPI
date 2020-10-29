@@ -10,7 +10,7 @@ class App {
     }
 
     init() {
-        this.$h1.innerHTML = '<a href="/category.html">CATCH CAT </a>';
+        this.$h1.innerHTML = '<a href="/catch.html">CATCH CAT </a>';
 
         for (let i = 0; i < 2; i++) {
             this.mountRollingText(i);
