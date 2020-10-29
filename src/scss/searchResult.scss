@@ -1,5 +1,19 @@
 @import 'variables';
 
+#Catch{
+    main{
+        &:before{
+            content:'RANDOM CAT';
+            font-size:5rem;
+            position:fixed;
+            z-index:10;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+}
+
 body{
     main{
         .SearchResult{
@@ -39,13 +53,16 @@ body{
 }
 
 @media screen and (max-width:768px){
-  body{
-       main{
-            .SearchResult {
-                  column-count: 2;
-                  }
-              }
-          }
+  #Category{
+    main{
+        .SearchResult {
+            padding-top:0;
+        }
+        #empty{
+            word-break: keep-all;
+        }
+    }
+  }   
 }
 
 @media screen and (max-width:576px){
@@ -57,3 +74,4 @@ body{
           }
       }
 }
+

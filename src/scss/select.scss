@@ -9,40 +9,32 @@
         }
        .select_form{  
            width:100%; 
-
            .selected{
             //hidden
             position: absolute; 
-            overflow: hidden; 
-            clip: rect(0 0 0 0); 
-            height: 1px; width: 1px; 
-            margin: -1px; padding: 0; border: 0; 
+            top:-999px;
+            left:-999px;
            }  
-
            ul{ 
+               cursor:pointer;
                width:100%;
-               height:$navHeight;
-               display:flex !important;
-               flex-direction:column;
-               justify-content: space-evenly;
-               flex-wrap:wrap;
+               height:$navHeight/2;
+               display:grid !important;
+               grid-template-columns: repeat(7, 1fr);
                border-bottom:1px solid var(--font-color);
                li{
-                    font-size:$navFontSize;
+                    align-self: center;
+                    text-align:center;
+                    font-size:1.2rem;
                     padding:$listPaddingTB;
-                    text-align: center;
-                    line-height:1rem;
+                    line-height:0.6rem;
                     border-right: 1px solid var(--font-color);
                     &:last-child{
                         border:none;
                     }
                     &.active{
-                        text-decoration:underline dotted green;
-                        // &:after{
-                        //     content:'∙';
-                        //     color:green;
-                        // }
-                    }
+                        color:green;
+                        text-decoration:underline dotted green;                    }
                }
            }
         }
@@ -77,3 +69,42 @@
         }
     }
 }
+
+@media screen and (max-width:768px){
+    #Category{
+        width:100%;
+        header{
+            height:0;
+        }
+        main{
+            width:100%;
+            .select_wrap{
+                height:0;
+            }
+            .select_form{  
+                width:100%;
+                ul{ 
+                    width:0%;
+                    display:flex !important;
+                    flex-direction:column;
+                    position:fixed;
+                    top:0.5rem;
+                    left:1rem;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    z-index:10;
+                    height:180px;
+                    border-bottom:none; 
+                    li{
+                       width:25%;
+                       text-align:left;
+                       font-size:1.2rem;
+                       line-height:.6rem;
+                       border-right:none; 
+                    }          
+                }
+            }
+        }
+    }
+}
+  
