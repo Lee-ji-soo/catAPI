@@ -39,8 +39,7 @@ https://thecatapi.com/
 
 ## CSS
 - [x] Home
-- [ ] Navigation
-- [ ] Header
+- [x] Navigation
 - [ ] Select
 - [ ] Result
 - [ ] Info

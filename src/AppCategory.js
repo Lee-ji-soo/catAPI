@@ -7,9 +7,9 @@ class AppCategory {
         this.$header = document.createElement('header');
         this.$selectWrap = document.createElement('div');
         this.$main = document.createElement('main');
-        if (this.$target) {
-            this.$target.append(this.$header, this.$main);
-        }
+        this.$target.append(this.$header, this.$main);
+        this.$main.appendChild(this.$selectWrap);
+
         this.state = {
             loading: false,
             onCategory: false,
@@ -76,8 +76,6 @@ class AppCategory {
         this.darkMode = new DarkMode({
             $target: this.$header,
         })
-
-        this.$header.appendChild(this.$selectWrap);
 
         this.searchResult = new SearchResult({
             $target: this.$main,

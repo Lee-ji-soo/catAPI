@@ -15,7 +15,6 @@ class AppFav {
             user: 'soo'
         };
 
-
         this.isLoading = new Loading({
             $target: this.$target,
             loading: this.state.loading
@@ -65,7 +64,6 @@ class AppFav {
         await this.fetchGetVote();
         this.isLoading.setState(false);
     }
-
 };
 
 export default AppFav;

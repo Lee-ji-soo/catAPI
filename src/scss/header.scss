@@ -1,17 +1,39 @@
-#App, #Vote, #Favorite, #Breed, #Category{
+@import 'variables';
+
+body{
     header{
-        .app_title{
-            font-size:4rem;
-            font-weight:bold;
-            text-align:center;
+        .nav{
+            position:fixed;
+            width:$basicWidth;
+            height:$navHeight;
+            background-color:var(--background-color);
+            box-sizing: border-box;
+            display:grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap:0;
+            font-size:2.5rem;
+            border-bottom:2px solid var(--font-color);
+
+            li{
+                align-self: center;
+                text-align:center;
+                border-right:3px solid var(--font-color);
+                line-height: 1.6rem;
+                &:last-child{
+                    border:none;
+                }
+                &:hover{
+                    animation:arr2 0.3s infinite;  
+                }
+            }
         }
+        
         .darkMode{
-            position:absolute;
-            top:1rem;
-            left:1.5rem;
+            position:fixed;
+            bottom:1rem;
+            right:1.5rem;
             cursor: pointer;
             font-size:2rem;
-            background: none;
             outline:none;
             border:none;
             animation:rotate 8s infinite;

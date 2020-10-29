@@ -23,8 +23,8 @@ body,ul,p,h1,h2,h3,div,button{
 }
 
 a {
+    color:var(--font-color);
    text-decoration: none;
-   color:#111;
   }
   
 a:active,
@@ -45,19 +45,19 @@ body{
     height:100%;
 }
   
-#App, #Vote, #Favorite, #Breed, #Category{
+body{
     font-size:100%;
     width:100%;
     height:100%;
-    
-
-    main,header{
-        width:80%;
+    main{
         height:100%;
+        padding-top:$navHeight;
+    }
+    main, header{
+        width:$basicWidth;
         margin:0 auto;
+        box-sizing: border-box;
     }
-    header{
-        height:30%;
-    }
+    
 }
 
