@@ -14,8 +14,7 @@ class DarkMode {
     }
 
     render() {
-        this.$toggleBtn.innerText = `${this.getMode() === 'dark' ? '🌕' : '🌚'}`
-
+        this.$toggleBtn.innerText = `${this.getMode() === 'dark' ? 'Light Mode' : 'Dark Mode'}`
         document.documentElement.setAttribute('color-mode',
             this.mode === 'light' ? 'light' : 'dark')
     }

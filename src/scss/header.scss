@@ -5,15 +5,17 @@ body{
         height:$navHeight; 
         .nav{
             position:fixed;
+            z-index:10;
             width:$basicWidth;
             height:$navHeight;
             background-color:var(--background-color);
-            box-sizing: border-box;
+            
             display:grid;
             grid-template-columns: repeat(5, 1fr);
-            gap:0;
+
             font-size:$navFontSize;
             border-bottom:2px solid var(--font-color);
+
             li{
                 align-self: center;
                 text-align:center;
@@ -28,7 +30,7 @@ body{
                 &.active{
                     &:after{
                        content:'●';
-                       font-size:2rem;
+                       font-size:1.5rem;
                        text-align:center;
                        vertical-align:center;
                        padding-left:.3rem;
@@ -40,14 +42,15 @@ body{
         }
         
         .darkMode{
+            cursor: pointer;
             position:fixed;
             bottom:1rem;
             right:1.5rem;
-            cursor: pointer;
-            font-size:2rem;
+            font-family: 'VT323', monospace;
+            font-size:1.5rem;
             outline:none;
             border:none;
-            animation:rotate 8s infinite;
+            animation:rotate 16s infinite;
         }
     }
     .loading{
@@ -71,17 +74,18 @@ body{
 
 @keyframes rotate{
     from{transform:rotateY(0deg)}
-    to{transform:rotateY(180deg)}
+    50%{transform: rotateY(180deg);}
+    to{transform:rotateY(0deg)}
 }
 
 @media screen and (max-width:768px){
    body{ 
        header {
-        height:5%;
+        height:10%;
         .hamburger-open{
             width:35px;
             height:35px;
-            position:absolute;
+            position:fixed;
             z-index:18;
             top:.9rem;
             right:1rem;

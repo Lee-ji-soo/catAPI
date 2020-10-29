@@ -17,7 +17,6 @@ class Select {
         this.$target.className = 'select_wrap'
         this.$selectForm = document.createElement('div');
         this.$selectForm.className = `select${this.selectTitle}_form select_form`;
-        this.$selectForm.innerText = `${this.selectTitle}+`
 
         this.$select = document.createElement("ul");
         this.$select.className = `select${this.selectTitle} select`;
@@ -101,7 +100,6 @@ class Select {
         if (e.target.classList.contains('Breed') && this.onSelectBreed) {
             this.onSelectBreed(this.state.selected);
         } else if (e.target.classList.contains('Category') && this.onSelectCategory) {
-            console.log(this.state.selected)
             this.onSelectCategory(this.state.selected);
             return;
         }

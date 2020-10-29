@@ -1,27 +1,70 @@
 @import 'variables';
 
-#Category, #Breed{
+#Category{
+    main{
+        .select_wrap{
+            width:100%;
+            height:$navHeight;
+            position:relative;
+        }
+       .select_form{  
+           width:100%; 
+
+           .selected{
+            //hidden
+            position: absolute; 
+            overflow: hidden; 
+            clip: rect(0 0 0 0); 
+            height: 1px; width: 1px; 
+            margin: -1px; padding: 0; border: 0; 
+           }  
+
+           ul{ 
+               width:100%;
+               height:$navHeight;
+               display:flex !important;
+               flex-direction:column;
+               justify-content: space-evenly;
+               flex-wrap:wrap;
+               border-bottom:1px solid var(--font-color);
+               li{
+                    font-size:$navFontSize;
+                    padding:$listPaddingTB;
+                    text-align: center;
+                    border-right: 1px solid var(--font-color);
+                    &:last-child{
+                        border:none;
+                    }
+               }
+           }
+        }
+    }
+}
+
+
+#Breed{
     main{
         .select_wrap{
             cursor: pointer;            
-            position:relative;
-            display:flex;
             width:100%;
-            height:20%;
+            height:$navHeight;
+            
+            position:relative;
+            display:grid;
             grid-template-columns: repeat(2,1fr);
         }
-
        .select_form{  
-           width:20%;  
+           width:20%; 
            .select{
                background-color: rgba(255,255,255,0.8);
                overflow-y: scroll;
                position:absolute;
                top:1.8rem;
-                width:20%;
-                height:600%;
-                font-size:1.2rem;
-               li{ padding:$listPaddingTB;
+               width:20%;
+               height:600%;
+               font-size:1.2rem;
+               li{
+                    padding:$listPaddingTB;
                }
            }
         }
