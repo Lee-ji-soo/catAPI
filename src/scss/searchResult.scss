@@ -6,6 +6,7 @@
             content:'RANDOM CAT';
             font-size:5rem;
             position:fixed;
+            color:#b91d73;
             z-index:10;
             top:50%;
             left:50%;
@@ -35,7 +36,6 @@ body{
             li{
                 width:100%;
                 height:auto;
-                padding-bottom:1rem;
                 img{
                     width:100%;
                     min-width:100%;
@@ -56,22 +56,26 @@ body{
   #Category{
     main{
         .SearchResult {
+            column-count: 2;
             padding-top:0;
-        }
-        #empty{
-            word-break: keep-all;
+            #empty{
+                word-break: keep-all;
+            }
+            li{
+                padding-bottom:0rem;
+                margin-top:-.2rem;
+            }
         }
     }
   }   
 }
 
 @media screen and (max-width:576px){
-  body{ 
-      main{
-          .SearchResult {
-              column-count: 1;
-              }
-          }
-      }
-}
-
+    #Category{
+        main{
+            .SearchResult {
+                column-count: 1;
+            }
+        }
+      }   
+    }

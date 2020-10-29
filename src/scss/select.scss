@@ -32,9 +32,12 @@
                     &:last-child{
                         border:none;
                     }
+                    &:hover{
+                        color:#14e89a;
+                    }
                     &.active{
-                        color:green;
-                        text-decoration:underline dotted green;                    }
+                        color:#14e89a;
+                        text-decoration:underline dotted #14e89a;                    }
                }
            }
         }

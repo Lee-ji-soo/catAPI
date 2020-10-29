@@ -25,16 +25,16 @@ body{
                     border:none;
                 }
                 &:hover{
-                    animation:arr2 0.3s infinite;  
+                    animation:arr2 0.1s infinite;  
                 }
                 &.active{
                     &:after{
                        content:'●';
-                       font-size:1.5rem;
+                       font-size:1rem;
                        text-align:center;
                        vertical-align:center;
                        padding-left:.3rem;
-                       color:tomato;
+                       color:#b91d73;
                     }
                 }
 
@@ -94,7 +94,7 @@ body{
                .btn_line{
                    width: 35px;
                    height: 3px;
-                   background-color: black;
+                   background-color: #14e89a;
                    margin-bottom: 6px;
                    cursor:pointer;
                    transition:all 0.5s ease;
@@ -109,7 +109,7 @@ body{
                             opacity: 0; 
                         }
                        &:nth-child(3){
-                            transform: rotate(-45deg) translate(8px, -6px); 
+                            transform: rotate(-45deg) translate(9px, -6px); 
                         }
                     }   
                }
@@ -141,7 +141,7 @@ body{
                top:0%;
                width:100%;
                left:100%;
-               transition:all 1s ease;
+               transition:all .5s ease;
                &:nth-child(1){
                    transition-delay: 0.1s; 
                    top:0%;
