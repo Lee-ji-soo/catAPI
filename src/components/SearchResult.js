@@ -63,7 +63,7 @@ class SearchResult {
             htmlStr = this.data
                 .map((cat, index) => `<li class='item' data-index=${index}>
                     <img data-src=${cat.url} alt=${cat.name} 
-                    src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F2ChCI%2FbtqvPbkYHXS%2FBjoh4TSXHv66xRoiu6mrr1%2Fimg.gif'/>
+                    src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/src/assets/imageLoading.gif'/>
                   </li>`)
                 .join('');
         }
