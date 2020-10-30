@@ -46,4 +46,4 @@ https://thecatapi.com/
 - [ ] Info
 - [ ] Vote
 - [ ] Favorite
-- [ ] Loading & Lazy Loading gif
+- [x] Loading & Lazy Loading gif

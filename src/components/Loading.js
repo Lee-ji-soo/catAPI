@@ -11,7 +11,7 @@ class Loading {
     }
 
     render() {
-        this.$loading.innerHTML = `<p>now is loading...</p>`
+        this.$loading.innerHTML = `<img src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/src/assets/loading.gif'/>`
         this.$loading.style.display = `${this.$isLoading ? 'block' : 'none'}`
     }
 
