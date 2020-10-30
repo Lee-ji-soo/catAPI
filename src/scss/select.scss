@@ -1,11 +1,11 @@
 @import 'variables';
 
-#Category{
+#Category,#Breed{
     main{
         .select_wrap{
             width:100%;
-            // height:$navHeight;
             position:relative;
+            top:$headerHeight+$navHeight*2;
         }
        .select_form{  
            width:100%; 
@@ -25,7 +25,7 @@
                li{
                     align-self: center;
                     text-align:center;
-                    font-size:1.2rem;
+                    font-size:.8rem;
                     padding:$listPaddingTB;
                     line-height:0.6rem;
                     border-right: 1px solid var(--font-color);
@@ -37,7 +37,7 @@
                     }
                     &.active{
                         color:#14e89a;
-                        text-decoration:underline dotted #14e89a;                    }
+                    }
                }
            }
         }

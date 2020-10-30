@@ -3,12 +3,15 @@ class Header {
         this.$target = $target;
         this.path = path;
 
-        this.$nav = document.createElement('ul');
+        this.$home = document.createElement('a');
+        this.$home.setAttribute('href', './index.html');
+        this.$home.className = 'home';
         this.$hamburger = document.createElement('section');
         this.$hamburger.className = 'hamburger-open';
+        this.$nav = document.createElement('ul');
         this.$nav.className = 'nav';
         this.$navLi;
-        this.$target.append(this.$hamburger, this.$nav);
+        this.$target.append(this.$home, this.$hamburger, this.$nav);
 
         this.isOpen = false;
         this.$hamburger.addEventListener('click', this.handleHamburger.bind(this))
@@ -35,6 +38,8 @@ class Header {
     }
 
     render() {
+        this.$home.innerText = 'HOME';
+
         this.$hamburger.innerHTML = `
             <div class='btn_line'></div>
             <div class='btn_line'></div>

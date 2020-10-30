@@ -53,16 +53,6 @@ class AppBreed {
         });
     };
 
-    mountSelectBreed() {
-        this.selectBreed = new Select({
-            $app: this.$target,
-            $target: this.$selectWrap,
-            selections: this.breeds,
-            title: 'Breed',
-            onSelectBreed: (selected) => { this.onSelectBreed(selected) },
-        })
-    }
-
     mountComponent() {
 
         this.header = new Header({
@@ -90,6 +80,16 @@ class AppBreed {
             data: this.state
         })
 
+    }
+
+    mountBreedSelect() {
+        this.selectBreed = new Select({
+            $app: this.$target,
+            $target: this.$selectWrap,
+            selections: this.breeds,
+            title: 'Breed',
+            onSelectBreed: (selected) => { this.onSelectBreed(selected) },
+        })
     }
 
     mountInitialCat() {
@@ -153,7 +153,7 @@ class AppBreed {
         const breeds = await api.fetchInitialBreeds();
         this.breeds = breeds;
         this.data.breeds = breeds[0];
-        this.mountSelectBreed();
+        this.mountBreedSelect();
     }
 
     async fetchBreed({ breed }) {

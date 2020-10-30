@@ -62,8 +62,9 @@ const api = {
     },
 
     fetchBreed: async (breed) => {
+        console.log(breed);
         const res = await
-            fetch(`${API_ENDPOINT}/images/search?breed_id=${breed.id}&limit=12&page=10`, {
+            fetch(`${API_ENDPOINT}/images/search?breed_id=${breed}&limit=12&page=10`, {
                 method: 'GET',
                 headers: {
                     "x-api-key": API_KEY

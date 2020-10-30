@@ -5,16 +5,16 @@
 @import 'vote';
 @import 'home';
 @import './colormode.css';
-@import url('https://fonts.googleapis.com/css2?family=VT323&family=Black+Han+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
 @font-face{
-    font-family: 'VT323', monospace;
-    font-family: 'Black Han Sans', sans-serif;
-    src:url('https://fonts.googleapis.com/css2?family=VT323&display=swap')
+    font-family: Helvetica Neue; 
+    font-family: 'Noto Sans KR', sans-serif;
+    src:url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap')
 };
 
 body{
-    font-family: 'VT323', monospace;
+    font-family: Helvetica Neue;
 }
 
 body,ul,p,h1,h2,h3,div,button{
@@ -54,7 +54,7 @@ body{
         height:100%;
     }
     main, header{
-        width:$basicWidth;
+        width:100%;
         margin:0 auto;
         box-sizing: border-box;
     }

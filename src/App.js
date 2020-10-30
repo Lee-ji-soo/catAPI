@@ -1,11 +1,31 @@
-import { RollingText } from './components';
+import { RollingText, Cat } from './components';
 
 class App {
     constructor({ $target }) {
         this.$target = $target;
         this.$h1 = document.createElement('h1');
         this.$target.append(this.$h1);
+        this.totalCat = 10;
+
+
         this.init();
+        this.renderCat();
+    }
+
+    renderCat() {
+        let cat;
+        for (let i = 0; i < this.totalCat; i++) {
+            const width = Math.random() * 300;
+            const left = Math.random() * 900;
+
+            const top = Math.random() * 900;
+            cat = new Cat({
+                $target: this.$target,
+                width: width,
+                left: left,
+                top: top,
+            })
+        }
     }
 
     init() {

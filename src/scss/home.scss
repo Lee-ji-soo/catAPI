@@ -4,21 +4,35 @@
     height:100%;
     overflow:hidden;
     position:relative;
-    background: linear-gradient(to right, #f953c6,#b91d73);
-    h1{
+    background: linear-gradient(to right, #f7adb7,#fcb0ba);
+    .cat{
         cursor:pointer;
         position:absolute;
+        z-index:10;
+        visibility: visible;
+        opacity:1;
+        transition:all .1s ease;
+        &.disappear{
+            opacity:0;
+            visibility:hidden;
+        }
+    }
+    h1{
+        width:100%;
+        text-align:center;
+        cursor:pointer;
+        position:absolute;
+        z-index:20;
         top:50%;
         left:50%;
         transform: translate(-50%,-50%);
-        font-size:9rem;
-        width:34rem;
+        font-size:5rem;
         &:hover{
-            animation:arr 0.3s infinite;  
+            animation:arr 0.1s infinite;  
             &:after{
-                content:'CLICK START';
+                content:'Click to Start';
                 width:100%;
-                font-size:2rem;
+                font-size:1rem;
                 display:block;
                 position:absolute;
                 color:#111;
@@ -35,8 +49,9 @@
         position:absolute;
         width:100%;
         height:auto;
-        font-size:3rem;  
-        $total: 12;
+        font-size:1rem;  
+        letter-spacing:10%;
+        font-weight:500;
         p{
             width:100%;
             position:absolute;
@@ -55,11 +70,11 @@
         top:1rem;
     }
     .section2{
-        bottom:5rem;
+        bottom:2rem;
     }
     }
 
-@media(max-width:640px){
+@media(max-width:768px){
     #App{
         h1{
             width:80%;
