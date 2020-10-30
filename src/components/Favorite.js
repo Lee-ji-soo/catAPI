@@ -14,6 +14,7 @@ class Favorite {
 
         this.observer = new IntersectionObserver((items) => { this.observe(items) })
     }
+
     setState(nextData) {
         this.data = nextData;
         this.render();
