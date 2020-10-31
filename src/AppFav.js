@@ -30,7 +30,7 @@ class AppFav {
         })
 
         this.darkMode = new DarkMode({
-            $target: this.$header
+            $target: this.$target,
         })
 
         this.favorite = new Favorite({

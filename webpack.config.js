@@ -4,7 +4,7 @@ module.exports = {
     mode: 'development',
     entry: {
         index: './src/index.js',
-        catch: './src/catch.js',
+        all: './src/all.js',
         category: "./src/category.js",
         breed: './src/breed.js',
         vote: './src/vote.js',

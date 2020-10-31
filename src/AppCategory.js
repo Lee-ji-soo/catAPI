@@ -74,7 +74,7 @@ class AppCategory {
         })
 
         this.darkMode = new DarkMode({
-            $target: this.$header,
+            $target: this.$target,
         })
 
         this.searchResult = new SearchResult({

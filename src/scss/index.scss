@@ -24,7 +24,7 @@ body,ul,p,h1,h2,h3,div,button{
 }
 
 a {
-    color:var(--font-color);
+color:black;
    text-decoration: none;
   }
   
@@ -49,15 +49,34 @@ body{
 body{
     font-size:100%;
     width:100%;
+    position:relative;
     height:100%;
+    .app{
+        width:100%;
+        height:100%;
+    }
+
     main{
         height:100%;
     }
+    
     main, header{
         width:100%;
-        margin:0 auto;
+        position:relative;
         box-sizing: border-box;
     }
-    
+
+    .darkMode{
+        cursor: pointer;
+        position:fixed;
+        bottom:1rem;
+        right:1.5rem;
+        font-family: Helvetica Neue;
+        font-size:1rem;
+        color:var(--font-color);
+        outline:none;
+        border:none;
+        animation:rotate 16s infinite;
+    }   
 }
 

@@ -40,9 +40,9 @@ https://thecatapi.com/
 ## CSS
 - [x] Home
 - [x] Navigation
-- [x] Select - Category
+- [ ] Select - Category
 - [ ] Select - Breed
-- [x] Result
+- [ ] Result
 - [ ] Info
 - [ ] Vote
 - [ ] Favorite

@@ -1,7 +1,7 @@
 import { SearchResult, Header, DarkMode } from './components';
 import { api } from './utils/api.js';
 
-class AppCatch {
+class AppAll {
     constructor({ $target }) {
         this.$target = $target;
         this.$header = document.createElement('header');
@@ -48,7 +48,7 @@ class AppCatch {
         })
 
         this.darkMode = new DarkMode({
-            $target: this.$header,
+            $target: this.$target,
         })
 
         this.searchResult = new SearchResult({
@@ -92,5 +92,5 @@ class AppCatch {
         });
     }
 }
-export default AppCatch;
+export default AppAll;
 

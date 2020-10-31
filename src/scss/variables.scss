@@ -1,10 +1,11 @@
-$mainColor:#ee9ca7;
 $listPaddingTB:0.4rem 0;
-$headerHeight:60px;
-$navHeight:50px;
-$navFontSize:1.3rem;
+$headerHeight:64px;
+$navFontSize:0.9rem;
 $navBorder:2px solid var(--font-color);
-$basicWidth:100%;
+$basicWidth:1280px;
+
+$mainColor:#ee9ca7;
+$mainBgColor:#262424;
 
 @keyframes arr {
     from{transform: translate(-50%,-50%) skew(0deg)}

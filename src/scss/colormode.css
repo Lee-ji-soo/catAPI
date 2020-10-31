@@ -6,14 +6,9 @@
   
   :root[color-mode='dark']{
     --font-color:#fff;
-    --background-color:#111
+    --background-color:#262424;
   }
-
-html{
-    color:var(--font-color);
-    background-color:var(--background-color);
-}
-
+  
 button{
   background:none;
 }

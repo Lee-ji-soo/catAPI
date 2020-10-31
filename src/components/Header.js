@@ -3,6 +3,8 @@ class Header {
         this.$target = $target;
         this.path = path;
 
+        this.$headerWrap = document.createElement('section');
+        this.$headerWrap.className = 'header-wrap';
         this.$home = document.createElement('a');
         this.$home.setAttribute('href', './index.html');
         this.$home.className = 'home';
@@ -10,8 +12,13 @@ class Header {
         this.$hamburger.className = 'hamburger-open';
         this.$nav = document.createElement('ul');
         this.$nav.className = 'nav';
+        this.$profile = document.createElement('img');
+        this.$profile.className = 'profile';
         this.$navLi;
-        this.$target.append(this.$home, this.$hamburger, this.$nav);
+
+        this.$target.appendChild(this.$headerWrap);
+        this.$headerWrap.append(this.$home, this.$nav, this.$profile);
+        this.$nav.appendChild(this.$hamburger);
 
         this.isOpen = false;
         this.$hamburger.addEventListener('click', this.handleHamburger.bind(this))
@@ -38,7 +45,7 @@ class Header {
     }
 
     render() {
-        this.$home.innerText = 'HOME';
+        this.$home.innerText = 'catch cat';
 
         this.$hamburger.innerHTML = `
             <div class='btn_line'></div>
@@ -46,7 +53,7 @@ class Header {
             <div class='btn_line'></div>
         `
         this.$nav.innerHTML = `
-            <li data-path='1'><a href='/catch.html'>CATCH CAT</a></li>
+            <li data-path='1'><a href='/all.html'>ALL</a></li>
             <li data-path='2'><a href='/category.html'>CATEGORY</a></li>
             <li data-path='3'><a href='/breed.html'>BREEDS</a></li>
             <li data-path='4'><a href='/vote.html'>VOTE</a></li>

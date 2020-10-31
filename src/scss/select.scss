@@ -5,7 +5,7 @@
         .select_wrap{
             width:100%;
             position:relative;
-            top:$headerHeight+$navHeight*2;
+            top:$headerHeight;
         }
        .select_form{  
            width:100%; 
@@ -18,7 +18,7 @@
            ul{ 
                cursor:pointer;
                width:100%;
-               height:$navHeight/2;
+               height:$headerHeight/2;
                display:grid !important;
                grid-template-columns: repeat(7, 1fr);
                border-bottom:1px solid var(--font-color);
@@ -38,35 +38,6 @@
                     &.active{
                         color:#14e89a;
                     }
-               }
-           }
-        }
-    }
-}
-
-#Breed{
-    main{
-        .select_wrap{
-            cursor: pointer;            
-            width:100%;
-            height:$navHeight;
-            
-            position:relative;
-            display:grid;
-            grid-template-columns: repeat(2,1fr);
-        }
-       .select_form{  
-           width:20%; 
-           .select{
-               background-color: rgba(255,255,255,0.8);
-               overflow-y: scroll;
-               position:absolute;
-               top:1.8rem;
-               width:20%;
-               height:600%;
-               font-size:1.2rem;
-               li{
-                    padding:$listPaddingTB;
                }
            }
         }

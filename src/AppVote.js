@@ -35,7 +35,7 @@ class AppVote {
         })
 
         this.darkMode = new DarkMode({
-            $target: this.$header
+            $target: this.$target,
         })
     }
 
