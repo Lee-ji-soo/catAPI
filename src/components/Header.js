@@ -3,6 +3,8 @@ class Header {
         this.$target = $target;
         this.path = path;
 
+        this.$headerBg = document.createElement('div');
+        this.$headerBg.className = 'header-bg';
         this.$headerWrap = document.createElement('section');
         this.$headerWrap.className = 'header-wrap';
         this.$home = document.createElement('a');
@@ -16,7 +18,8 @@ class Header {
         this.$profile.className = 'profile';
         this.$navLi;
 
-        this.$target.appendChild(this.$headerWrap);
+        this.$target.appendChild(this.$headerBg);
+        this.$headerBg.appendChild(this.$headerWrap);
         this.$headerWrap.append(this.$home, this.$nav, this.$profile);
         this.$nav.appendChild(this.$hamburger);
 

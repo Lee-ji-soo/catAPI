@@ -5,71 +5,78 @@ body{
         width:100%;
         height:$headerHeight;
         background-color:var(--nav-background-color);
-        position:relative;
-        .header-wrap{        
-            position:fixed;
-            z-index:10;
+        position:fixed;
+            .header-bg{
+                    width:100%;
+                    position:fixed;
+                    z-index:10;
+                    height:$headerHeight;
+                    background-color:var(--nav-background-color);
+
+                .header-wrap{        
+                    position:fixed;
+                    z-index:10;
+                        
+                    width:1280px;
+                    height:$headerHeight;
+                    padding:0 35px;
+
+                    left:0;
+                    right:0;
+                    margin-left:auto;
+                    margin-right:auto;
+
+                    display:grid;
+                    grid-template-columns: calc(2.5/10*100%) calc(5/10*100%) calc(2.5/10*100%);
+                    align-items:center;
+                                        
+                    box-sizing:border-box;
+                    background-color:var(--nav-background-color);
                 
-            width:1280px;
-            height:$headerHeight;
-            padding:0 35px;
-
-            left:0;
-            right:0;
-            margin-left:auto;
-            margin-right:auto;
-
-            display:grid;
-            grid-template-columns: calc(2.5/10*100%) calc(5/10*100%) calc(2.5/10*100%);
-            align-items:center;
-                                
-            box-sizing:border-box;
-            background-color:var(--nav-background-color);
-        
-            .home{
-                color:white;
-                font-size:1.4rem;
-                font-weight:700;
-            }
-            .profile{
-                width:30px;
-                height:30px;
-                border-radius:50%;
-                background-color:$mainColor;
-                color:$mainColor;
-                text-align:right;
-                justify-self:flex-end;
-        }
-        
-        .nav{
-            height:$headerHeight;   
-            display:grid;
-            grid-template-columns: repeat(5, 1fr);            
-            li{
-                font-size:$navFontSize;
-                align-self: center;
-                text-align:center;
-                line-height: 1.6rem;
-                a{
-                    color:white;
-                    padding:0 6px;
-                }
-                &:last-child{
-                    border:none;
-                }
-                &:hover{
-                    animation:arr2 0.1s infinite;  
-                }
-                &.active{
-                    a{
-                    padding-bottom:18px;
-                    color:$mainColor;
-                    border-bottom:6px solid $mainColor;
+                    .home{
+                        color:white;
+                        font-size:1.4rem;
+                        font-weight:700;
                     }
-                }
+                    .profile{
+                        width:30px;
+                        height:30px;
+                        border-radius:50%;
+                        background-color:$mainColor;
+                        color:$mainColor;
+                        text-align:right;
+                        justify-self:flex-end;
+                    }
+                    .nav{
+                        height:$headerHeight;   
+                        display:grid;
+                        grid-template-columns: repeat(5, 1fr);            
+                        li{
+                            font-size:$navFontSize;
+                            align-self: center;
+                            text-align:center;
+                            line-height: 1.6rem;
+                            a{
+                                color:white;
+                                padding:0 6px;
+                            }
+                            &:last-child{
+                                border:none;
+                            }
+                            &:hover{
+                                animation:arr2 0.1s infinite;  
+                            }
+                            &.active{
+                                a{
+                                padding-bottom:18px;
+                                color:$mainColor;
+                                border-bottom:6px solid $mainColor;
+                                }
+                            }
 
-            }}
-        }
+                        }}
+                    }
+                 }
     }
     .loading{
         position:fixed;
