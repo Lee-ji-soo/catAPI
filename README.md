@@ -40,10 +40,17 @@ https://thecatapi.com/
 ## CSS
 - [x] Home
 - [x] Navigation
+   - [ ] responsive
 - [ ] Select - Category
+   - [ ] responsive
 - [ ] Select - Breed
-- [ ] Result
+   - [ ] responsive
+- [x] Result
+   - [ ] responsive
 - [ ] Info
+   - [ ] responsive
 - [ ] Vote
+   - [ ] responsive
 - [ ] Favorite
+   - [ ] responsive
 - [x] Loading & Lazy Loading gif

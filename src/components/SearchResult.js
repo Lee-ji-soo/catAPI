@@ -8,9 +8,12 @@ class SearchResult {
         this.onClickImg = onClickImg;
 
         //render cats
+        this.$resultWrap = document.createElement('section');
+        this.$resultWrap.className = 'result-wrap';
         this.$searchResult = document.createElement("ul");
         this.$searchResult.className = "SearchResult";
-        this.$target.appendChild(this.$searchResult);
+        this.$target.appendChild(this.$resultWrap);
+        this.$resultWrap.appendChild(this.$searchResult);
         this.page = data.page;
 
         //각 고양이 이미지

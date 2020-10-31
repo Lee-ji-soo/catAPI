@@ -1,12 +1,14 @@
 /* dark mode 처리*/
 :root[color-mode='light']{
     --font-color:#111;
-    --background-color:#fff
+    --background-color:#fff;
+    --nav-background-color:#262424;
   }
   
   :root[color-mode='dark']{
     --font-color:#fff;
     --background-color:#262424;
+    --nav-background-color:#111;
   }
   
 button{

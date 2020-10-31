@@ -4,7 +4,7 @@ body{
     header{  
         width:100%;
         height:$headerHeight;
-        background-color:$mainBgColor;
+        background-color:var(--nav-background-color);
         position:relative;
         .header-wrap{        
             position:fixed;
@@ -24,7 +24,7 @@ body{
             align-items:center;
                                 
             box-sizing:border-box;
-            background-color:$mainBgColor;
+            background-color:var(--nav-background-color);
         
             .home{
                 color:white;
@@ -62,12 +62,9 @@ body{
                 }
                 &.active{
                     a{
-                    // &:after{
-                    //    content:'●';
                     padding-bottom:18px;
                     color:$mainColor;
                     border-bottom:6px solid $mainColor;
-                    // }
                     }
                 }
 
