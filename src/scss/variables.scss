@@ -2,10 +2,20 @@ $listPaddingTB:0.4rem 0;
 $headerHeight:64px;
 $navFontSize:0.9rem;
 $navBorder:2px solid var(--font-color);
+
 $basicWidth:1280px;
+$subWidth:1124px;
+
 $basicPaddingTop:52px;
 $mainColor:#ee9ca7;
 $mainBgColor:#262424;
+
+$buttonPadding:0 24px;
+$buttonHeight:36px;
+$buttonColor:#EAEAEA;
+$buttonHoverColor:#DBDBDB;
+$buttonClickColor:$mainColor;
+$buttonRadius:4rem;
 
 @keyframes arr {
     from{transform: translate(-50%,-50%) skew(0deg)}

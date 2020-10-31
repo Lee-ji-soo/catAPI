@@ -5,38 +5,38 @@
         .select_wrap{
             width:100%;
             position:relative;
-            top:$headerHeight;
+            padding-top:$basicPaddingTop;
         }
        .select_form{  
-           width:100%; 
-           .selected{
-            //hidden
-            position: absolute; 
-            top:-999px;
-            left:-999px;
-           }  
+           width:$subWidth;
+           margin:0 auto;
+
            ul{ 
                cursor:pointer;
                width:100%;
                height:$headerHeight/2;
-               display:grid !important;
-               grid-template-columns: repeat(7, 1fr);
-               border-bottom:1px solid var(--font-color);
-               li{
-                    align-self: center;
-                    text-align:center;
-                    font-size:.8rem;
-                    padding:$listPaddingTB;
-                    line-height:0.6rem;
-                    border-right: 1px solid var(--font-color);
+               display:flex !important;
+               justify-content:center;
+
+               li{     
+                    height:$buttonHeight;
+                    line-height:$buttonHeight;
+                    font-size:$navFontSize;
+                    margin-right:1rem;
+                    padding:$buttonPadding;
+                    border-radius:$buttonRadius;
+                    background-color:$buttonColor;
+
                     &:last-child{
-                        border:none;
+                        margin:none;
                     }
+
                     &:hover{
-                        color:#14e89a;
+                        background-color:$buttonHoverColor;
                     }
                     &.active{
-                        color:#14e89a;
+                        color:white;
+                        background-color:$buttonClickColor;
                     }
                }
            }

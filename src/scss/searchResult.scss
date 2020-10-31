@@ -8,7 +8,7 @@ body{
             
             .SearchResult{
                 padding-top:$basicPaddingTop;
-                width:1124px;
+                width:$subWidth;
                 margin:0 auto;            
                 column-count: 3;
                 -webkit-column-count:3;
@@ -26,7 +26,7 @@ body{
                 li{
                     width:100%;
                     height:auto;
-                    margin-bottom:17px;
+                    margin-bottom:15px;
                     img{
                         width:100%;
                         min-width:100%;

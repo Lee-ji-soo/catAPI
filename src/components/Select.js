@@ -22,12 +22,9 @@ class Select {
         this.$select = document.createElement("ul");
         this.$select.className = `select${this.selectTitle} select`;
 
-        this.$selected = document.createElement('p');
-        this.$selected.className = 'selected';
-
         if (this.$target && this.$selectForm) {
             this.$target.appendChild(this.$selectForm);
-            this.$selectForm.append(this.$select, this.$selected);
+            this.$selectForm.append(this.$select);
         }
         this.$selectList;
 
@@ -85,8 +82,6 @@ class Select {
 
         this.$select.innerHTML = htmlStr;
         this.$selectList = this.$select.querySelectorAll('.selectList');
-
-        this.$selected.innerText = this.state.selected.name;
     }
 
     handleActive() {
