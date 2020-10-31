@@ -14,10 +14,12 @@
            ul{ 
                cursor:pointer;
                width:100%;
-               height:$headerHeight/2;
-               display:flex !important;
+               display:inline-flex !important;
+               flex-wrap:wrap;
                justify-content:center;
-
+               gap: 1rem;
+               max-height:130px;
+               overflow-y: scroll;
                li{     
                     height:$buttonHeight;
                     line-height:$buttonHeight;
@@ -40,6 +42,18 @@
                     }
                }
            }
+        }
+    }
+}
+#Breed{
+    .select_form{
+        ul{
+            border-bottom:$border;
+            li{
+                &:last-child{
+                    margin-bottom:1rem;
+                }
+            }
         }
     }
 }

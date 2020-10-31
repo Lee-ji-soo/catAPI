@@ -27,23 +27,12 @@ class Select {
             this.$selectForm.append(this.$select);
         }
         this.$selectList;
-
-        this.init();
         this.render();
 
         //Event listener
         if (this.$app) {
             this.$app.addEventListener('click', (e) => { this.handleEvt(e) });
         }
-    }
-
-    onShowSelect() {
-        this.state.show = !this.state.show;
-        this.$select.style.display = this.state.show ? "block" : 'none'
-    }
-
-    onHiddenSelect() {
-        this.$select.style.display = 'none'
     }
 
     onClickSelect(e) {
@@ -54,25 +43,14 @@ class Select {
                 return;
             }
         })
-        this.onHiddenSelect();
         this.handleActive();
         this.addItem(e);
     }
 
     handleEvt(e) {
-        if (e.target === this.$selectForm) {
-            this.onShowSelect();
-            return;
-        } else if (this.state.show && !e.target.classList.contains('selectList')) {
-            this.onHiddenSelect();
-            return;
-        } else if (e.target.classList.contains('selectList')) {
+        if (e.target.classList.contains('selectList')) {
             this.onClickSelect(e);
         }
-    }
-
-    init() {
-        this.onHiddenSelect();
     }
 
     render() {
@@ -87,7 +65,6 @@ class Select {
     handleActive() {
         this.$selectList.forEach(p => {
             if (p.parentNode.dataset.select === this.state.id) {
-                console.log('true', p.parentNode);
                 p.parentNode.classList.add('active');
             } else {
                 p.parentNode.classList.remove('active');

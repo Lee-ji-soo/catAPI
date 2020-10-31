@@ -19,9 +19,8 @@ class Header {
         this.$navLi;
 
         this.$target.appendChild(this.$headerBg);
-        this.$headerBg.appendChild(this.$headerWrap);
+        this.$headerBg.append(this.$headerWrap, this.$hamburger);
         this.$headerWrap.append(this.$home, this.$nav, this.$profile);
-        this.$nav.appendChild(this.$hamburger);
 
         this.isOpen = false;
         this.$hamburger.addEventListener('click', this.handleHamburger.bind(this))
@@ -29,6 +28,7 @@ class Header {
     }
 
     handleHamburger() {
+        console.log(this);
         if (this.isOpen) {
             this.$hamburger.classList.remove('close');
             this.$nav.classList.remove('show');

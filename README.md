@@ -40,10 +40,10 @@ https://thecatapi.com/
 ## CSS
 - [x] Home
 - [x] Navigation
+   - [x] responsive
+- [x] Select - Category
    - [ ] responsive
-- [ ] Select - Category
-   - [ ] responsive
-- [ ] Select - Breed
+- [x] Select - Breed
    - [ ] responsive
 - [x] Result
    - [ ] responsive

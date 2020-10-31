@@ -99,9 +99,13 @@ class AppBreed {
     init() {
         this.mountInitialCat();
         this.mountComponent();
-        this.fetchCat({ data: this.data });
         this.setPath();
+        this.render();
     };
+
+    render() {
+        this.searchResult.setState({ page: 1, items: [] });
+    }
 
     setPath() {
         this.header.setState(this.state.path);
@@ -152,7 +156,6 @@ class AppBreed {
     async fetchInitialBreeds() {
         const breeds = await api.fetchInitialBreeds();
         this.breeds = breeds;
-        this.data.breeds = breeds[0];
         this.mountBreedSelect();
     }
 
