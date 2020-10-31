@@ -1,3 +1,5 @@
+import { mansonaryGrid, debouncing } from '../utils';
+
 class SearchResult {
 
     constructor({ $target, data, onBottom, onClickImg }) {
@@ -18,25 +20,21 @@ class SearchResult {
 
         //각 고양이 이미지
         this.$cat;
-
-        const options = {
-            rootMargin: "-100px",
-            threshold: 1
-        }
-
-        this.observer = new IntersectionObserver((items) => { this.observe(items, options) })
+        this.observer = new IntersectionObserver((items) => { this.observe(items, this.lazyloading) })
     }
 
     lazyloading(item) {
         item.target.querySelector('img').src = item.target.querySelector('img').dataset.src;
     }
 
-    observe(items) {
+    observe(items, lazyLoading) {
         items.forEach(item => {
             let dataIndex = Number(item.target.dataset.index);
 
             if (item.isIntersecting) {
-                this.lazyloading(item);
+                mansonaryGrid(this.$searchResult, item.target);
+                debouncing(lazyLoading, item);
+
                 if (dataIndex + 1 === this.data.length) {
                     this.onBottom();
                 }
@@ -83,6 +81,11 @@ class SearchResult {
         this.$cat.forEach(($item) => {
             this.observer.observe($item);
         })
+    }
+
+    imagesLoaded(cat) {
+        console.log(cat);
+        // mansonaryGrid(this.$searchResult, this.$cat)
     }
 
     addClickEvt() {
