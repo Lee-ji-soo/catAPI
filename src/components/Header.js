@@ -14,11 +14,13 @@ class Header {
         this.$hamburger.className = 'hamburger-open';
         this.$nav = document.createElement('ul');
         this.$nav.className = 'nav';
-        this.$profile = document.createElement('img');
+        this.$profile = document.createElement('span');
         this.$profile.className = 'profile';
+        this.$path = document.createElement('p');
+        this.$path.className = 'path';
         this.$navLi;
 
-        this.$target.appendChild(this.$headerBg);
+        this.$target.append(this.$headerBg, this.$path);
         this.$headerBg.append(this.$headerWrap, this.$hamburger);
         this.$headerWrap.append(this.$home, this.$nav, this.$profile);
 
@@ -68,7 +70,12 @@ class Header {
     pointPath() {
         this.$navLi.forEach(li => {
             if (Number(li.dataset.path) === this.path) {
+                //nav 
                 li.classList.add('active');
+                //path 
+                const currentPath = li.firstChild.innerText;
+                this.$path.innerText = currentPath;
+
             } else {
                 li.classList.remove('active');
             }

@@ -3,9 +3,11 @@
 body{
     header{  
         width:100%;
-        height:$headerHeight;
+        height:169px;
         background-color:var(--background-color);
         position:fixed;
+        display:flex;
+        flex-direction: column;
             .header-bg{
                     width:100%;
                     position:fixed;
@@ -17,7 +19,7 @@ body{
                     position:fixed;
                     z-index:10;
                         
-                    width:1280px;
+                    width:$basicWidth;
                     height:$headerHeight;
                     padding:0 35px;
 
@@ -77,6 +79,14 @@ body{
                         }}
                     }
                  }
+            .path{
+                width:$subWidth;
+                position:relative;
+                margin:0 auto;
+                top:130px;
+                font-size:2rem;
+                font-weight:700;
+            }
     }
     .loading{
         position:fixed;
