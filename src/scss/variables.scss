@@ -11,15 +11,15 @@ $basicWidth:1280px;
 $subWidth:1124px;
 
 $basicPaddingTop:52px;
-$mainColor:#ee9ca7;
-$mainBgColor:#262424;
+$mainColor:#262424;
 
 $buttonPadding:0 24px;
 $buttonHeight:36px;
-$buttonColor:#EAEAEA;
-$buttonHoverColor:#DBDBDB;
+$buttonBorder:1px solid #EAEAEA;
+$buttonColor:#fff;
+$buttonHoverColor:#f3f3f3;
 $buttonClickColor:$mainColor;
-$buttonRadius:4rem;
+$buttonRadius:0.3rem;
 
 @keyframes arr {
     from{transform: translate(-50%,-50%) skew(0deg)}
