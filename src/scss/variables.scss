@@ -20,7 +20,8 @@ $buttonBorder:1px solid #EAEAEA;
 $buttonColor:var(--background-color);
 $buttonHoverColor:var(--button-hover-bc);
 $buttonHoverFontColor:var(--button-hover-fc);
-$buttonClickColor:$mainColor;
+$buttonClickColor:var(--button-click-bc);
+$buttonClickFontColor:var(--button-click-fc);
 $buttonRadius:0.3rem;
 
 @keyframes arr {

@@ -4,8 +4,7 @@ body{
     main{
         .result-wrap{
             width:100%;
-            background-color:var(--background-color);
-            height:100%;
+            height:max-content;
             .SearchResult{
                 padding-top:$basicPaddingTop;
                 width:$subWidth;
@@ -49,6 +48,9 @@ body{
         .result-wrap{
             .SearchResult {
                 width:100%;
+                box-sizing:border-box;
+                padding:$basicPaddingMO;
+                padding-top:$basicPaddingTop;
                 grid-template-columns:repeat(2 ,1fr);
                 #empty{
                     word-break: keep-all;

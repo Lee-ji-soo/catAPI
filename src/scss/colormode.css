@@ -4,13 +4,17 @@
     --background-color:#fff;
     --button-hover-bc:#efefef;
     --button-hover-fc:#111;
+    --button-click-bc:#111;
+    --button-click-fc:#fff;
   }
   
   :root[color-mode='dark']{
     --font-color:#fff;
     --background-color:#111;
-    --button-hover-bc:#353535;
-    --button-hover-fc:#fff;
+    --button-hover-bc:#efefef;
+    --button-hover-fc:#111;
+    --button-click-bc:#fff;
+    --button-click-fc:#111;
   }
   
 button{

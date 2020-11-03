@@ -6,7 +6,6 @@ body{
             width:100%;
             position:relative;
             padding-top:23px;
-            background-color: var(--background-color);
         }
        .select_form{  
            width:$subWidth;
@@ -37,7 +36,7 @@ body{
                         color:$buttonHoverFontColor;
                     }
                     &.active{
-                        color:white;
+                        color:$buttonClickFontColor;
                         background-color:$buttonClickColor;
                         border:none;
                     }
