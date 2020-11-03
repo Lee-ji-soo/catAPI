@@ -83,11 +83,6 @@ class SearchResult {
         })
     }
 
-    imagesLoaded(cat) {
-        console.log(cat);
-        // mansonaryGrid(this.$searchResult, this.$cat)
-    }
-
     addClickEvt() {
         this.$cat.forEach((cat, index) => {
             cat.addEventListener("click", () => {

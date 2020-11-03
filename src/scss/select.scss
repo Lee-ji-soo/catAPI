@@ -1,11 +1,12 @@
 @import 'variables';
 
-#Category,#Breed{
+body{
     main{
         .select_wrap{
             width:100%;
             position:relative;
             padding-top:23px;
+            background-color: var(--background-color);
         }
        .select_form{  
            width:$subWidth;
@@ -26,13 +27,14 @@
                     border-radius:$buttonRadius;
                     border:$buttonBorder;
                     background-color:$buttonColor;
-
+                    color:var(--font-color);
                     &:last-child{
                         margin:none;
                     }
 
                     &:hover{
                         background-color:$buttonHoverColor;
+                        color:$buttonHoverFontColor;
                     }
                     &.active{
                         color:white;
@@ -53,7 +55,7 @@
 }
 
 @media screen and (max-width:768px){
-    #Category{
+    body{
         width:100%;
         header{
             height:0;
@@ -61,28 +63,29 @@
         main{
             width:100%;
             .select_wrap{
-                height:0;
+                width:100%;
+                margin-top:142px;
             }
             .select_form{  
                 width:100%;
                 ul{ 
-                    width:0%;
+                    position:relative;
+                    width:100%;
+                    height:$buttonHeight;
+                    padding:$basicPaddingMO;
                     display:flex !important;
-                    flex-direction:column;
-                    position:fixed;
-                    top:0.5rem;
-                    left:1rem;
+                    flex-direction:row;
+                    position:relative;
                     justify-content: flex-start;
                     align-items: flex-start;
-                    z-index:10;
-                    height:180px;
+                    z-index:0;
                     border-bottom:none; 
+                    box-sizing:border-box;
                     li{
-                       width:25%;
+                        box-sizing:border-box;
                        text-align:left;
                        font-size:1.2rem;
-                       line-height:.6rem;
-                       border-right:none; 
+                       line-height:$buttonHeight;
                     }          
                 }
             }

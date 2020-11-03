@@ -5,7 +5,7 @@ const debouncing = (lazyLoading, item) => {
     }
     timer = setTimeout(function () {
         lazyLoading(item);
-    }, 1000);
+    }, 1500);
 }
 
 export { debouncing };

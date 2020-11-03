@@ -2,11 +2,15 @@
 :root[color-mode='light']{
     --font-color:#111;
     --background-color:#fff;
+    --button-hover-bc:#efefef;
+    --button-hover-fc:#111;
   }
   
   :root[color-mode='dark']{
     --font-color:#fff;
-    --background-color:#262424;
+    --background-color:#111;
+    --button-hover-bc:#353535;
+    --button-hover-fc:#fff;
   }
   
 button{

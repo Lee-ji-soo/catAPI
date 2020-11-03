@@ -46,7 +46,7 @@ https://thecatapi.com/
 - [x] Select - Breed
    - [ ] responsive
 - [x] Result
-   - [ ] responsive
+   - [x] responsive
 - [ ] Info
    - [ ] responsive
 - [ ] Vote
