@@ -50,7 +50,7 @@ body{
                 width:100%;
                 box-sizing:border-box;
                 padding:$basicPaddingMO;
-                padding-top:$basicPaddingTop;
+                padding-top:90px;
                 grid-template-columns:repeat(2 ,1fr);
                 #empty{
                     word-break: keep-all;

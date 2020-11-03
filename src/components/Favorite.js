@@ -1,3 +1,5 @@
+import { mansonaryGrid, debouncing } from '../utils';
+
 class Favorite {
     constructor({ $target, data, onDelete }) {
         this.data = data;
@@ -5,16 +7,31 @@ class Favorite {
         this.onDelete = onDelete;
 
         //render cats
+        this.$favoriteWrap = document.createElement('section');
+        this.$favoriteWrap.className = 'result-wrap';
         this.$favorite = document.createElement("ul");
         this.$favorite.className = "SearchResult";
-        this.$target.appendChild(this.$favorite);
+        this.$favoriteWrap.appendChild(this.$favorite);
+        this.$target.appendChild(this.$favoriteWrap);
 
         this.$cat;
         this.$deleteBtn;
 
-        this.observer = new IntersectionObserver((items) => { this.observe(items) })
+        this.observer = new IntersectionObserver((items) => { this.observe(items, this.lazyloading) })
     }
 
+    lazyloading(item) {
+        item.target.querySelector('img').src = item.target.querySelector('img').dataset.src;
+    }
+
+    observe(items, lazyLoading) {
+        items.forEach(item => {
+            if (item.isIntersecting) {
+                mansonaryGrid(this.$favorite, item.target);
+                debouncing(lazyLoading, item);
+            }
+        })
+    }
     setState(nextData) {
         this.data = nextData;
         this.render();
@@ -44,18 +61,6 @@ class Favorite {
     handleClick(e, onDelete) {
         const { target: { dataset: { id } } } = e;
         onDelete(id);
-    }
-
-    lazyloading(item) {
-        item.target.querySelector('img').src = item.target.querySelector('img').dataset.src;
-    }
-
-    observe(items) {
-        items.forEach(item => {
-            if (item.isIntersecting) {
-                this.lazyloading(item);
-            }
-        })
     }
 }
 
