@@ -19,17 +19,27 @@ class SearchInfo {
             const { clicked: { url, breeds: { 0: { weight: { metric = 0 }, description = '', origin = '', name = '', temperament = '' } } } } = this.data;
             const htmlStr = `
                             <div class="content-wrapper">
-                            <section class="title">
+                                <div class='img' style='background-image:url(${url})'></div>        
+                                <section class="description">
+                                    <p class='name'>${name}</p>
+                                    <p>
+                                        <span class='tt'>Description</span>
+                                        <span class='con'>${description}<span>
+                                    </p>
+                                    <p>
+                                        <span class='tt'>Temperament</span>
+                                        <span class='con'>${temperament}<span>
+                                    </p>
+                                    <p>
+                                        <span class='tt'>Origin</span>
+                                        <span class='con'>${origin}<span>
+                                    </p>
+                                    <p>
+                                        <span class='tt'>Weight</span>
+                                        <span class='con'>${metric}<span>
+                                    </p>
+                                </section>
                                 <button class="close">x</button>
-                            </section>
-                            <img src="${url}" alt="${name}"/>        
-                            <section class="description">
-                                <p>이름: ${name}</p>
-                                <p>설명: ${description}</p>
-                                <p>성격: ${temperament}</p>
-                                <p>태생: ${origin}</p>
-                                <p>몸무게: ${metric}kg</p>
-                            </section>
                             </div>`;
 
             this.$searchInfo.innerHTML = htmlStr;

@@ -47,7 +47,7 @@ https://thecatapi.com/
    - [ ] responsive
 - [x] Result
    - [x] responsive
-- [ ] Info
+- [x] Info
    - [ ] responsive
 - [ ] Vote
    - [ ] responsive
