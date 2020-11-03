@@ -1,5 +1,3 @@
-import { mansonaryGrid, debouncing } from '../utils';
-
 class Favorite {
     constructor({ $target, data, onDelete }) {
         this.data = data;
@@ -27,8 +25,7 @@ class Favorite {
     observe(items, lazyLoading) {
         items.forEach(item => {
             if (item.isIntersecting) {
-                mansonaryGrid(this.$favorite, item.target);
-                debouncing(lazyLoading, item);
+                lazyLoading(item);
             }
         })
     }

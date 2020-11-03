@@ -33,6 +33,13 @@ a:active,
 a:hover {
   outline: 0;
 }
+
+button{
+    background: none;
+    border:none;
+    outline:none;
+}
+
 ul,li{
     list-style:none;
 }

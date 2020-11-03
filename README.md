@@ -51,6 +51,6 @@ https://thecatapi.com/
    - [ ] responsive
 - [ ] Vote
    - [ ] responsive
-- [ ] Favorite
-   - [ ] responsive
+- [x] Favorite
+   - [x] responsive
 - [x] Loading & Lazy Loading gif
