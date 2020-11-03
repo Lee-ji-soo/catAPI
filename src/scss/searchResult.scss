@@ -1,5 +1,9 @@
 @import 'variables';
 
+body #Breed main .result-wrap .SearchResult li{
+    cursor:pointer;
+}
+
 body{
     main{
         .result-wrap{
