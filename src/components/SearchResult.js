@@ -1,4 +1,4 @@
-import { mansonaryGrid, debouncing } from '../utils';
+import { masonryGrid, debouncing } from '../utils';
 
 class SearchResult {
 
@@ -18,9 +18,15 @@ class SearchResult {
         this.$resultWrap.appendChild(this.$searchResult);
         this.page = data.page;
 
+        let options = {
+            root: document.querySelector('#resultWrap'),
+            rootMargin: '0px 0px -200px 0px',
+            threshold: 1.0
+        }
+
         //각 고양이 이미지
         this.$cat;
-        this.observer = new IntersectionObserver((items) => { this.observe(items, this.lazyloading) })
+        this.observer = new IntersectionObserver((items) => { this.observe(items, this.lazyloading) }, options)
     }
 
     lazyloading(item) {
@@ -32,7 +38,7 @@ class SearchResult {
             let dataIndex = Number(item.target.dataset.index);
 
             if (item.isIntersecting) {
-                mansonaryGrid(this.$searchResult, item.target);
+                masonryGrid(this.$searchResult, item.target);
                 debouncing(lazyLoading, item);
 
                 if (dataIndex + 1 === this.data.length) {

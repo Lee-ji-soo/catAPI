@@ -19,6 +19,8 @@ body{
                gap: 0.5rem;
                max-height:130px;
                li{     
+                    display:flex;
+                    min-width:fit-content;
                     height:$buttonHeight;
                     line-height:$buttonHeight;
                     font-size:$navFontSize;
@@ -30,7 +32,6 @@ body{
                     &:last-child{
                         margin:none;
                     }
-
                     &:hover{
                         background-color:$buttonHoverColor;
                         color:$buttonHoverFontColor;
@@ -80,8 +81,9 @@ body{
                     z-index:0;
                     border-bottom:none; 
                     box-sizing:border-box;
+                    overflow-x:scroll;
                     li{
-                        box-sizing:border-box;
+                       box-sizing:border-box;
                        text-align:left;
                        font-size:1.2rem;
                        line-height:$buttonHeight;

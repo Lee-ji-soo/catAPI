@@ -42,9 +42,9 @@ https://thecatapi.com/
 - [x] Navigation
    - [x] responsive
 - [x] Select - Category
-   - [ ] responsive
-- [x] Select - Breed
-   - [ ] responsive
+   - [x] responsive
+- [ ] Select - Breed
+   - [x] responsive
 - [x] Result
    - [x] responsive
 - [x] Info

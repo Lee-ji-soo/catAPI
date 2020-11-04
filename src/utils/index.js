@@ -1,4 +1,4 @@
 import { debouncing } from './debouncing.js';
-import { mansonaryGrid } from './mansonaryGrid.js';
+import { masonryGrid } from './masonryGrid.js';
 
-export { debouncing, mansonaryGrid };
+export { debouncing, masonryGrid };

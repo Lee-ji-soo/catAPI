@@ -19,7 +19,7 @@ class SearchInfo {
             const { clicked: { url, breeds: { 0: { weight: { metric = 0 }, description = '', origin = '', name = '', temperament = '' } } } } = this.data;
             const htmlStr = `
                             <div class="content-wrapper">
-                                <div class='img' style='background-image:url(${url})'></div>        
+                                <div class='img' style='background-image:url(s${url})'></div>        
                                 <section class="description">
                                     <p class='name'>${name}</p>
                                     <p>

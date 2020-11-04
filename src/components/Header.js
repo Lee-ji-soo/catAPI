@@ -75,7 +75,6 @@ class Header {
                 //path 
                 const currentPath = li.firstChild.innerText;
                 this.$path.innerText = currentPath;
-
             } else {
                 li.classList.remove('active');
             }
