@@ -19,7 +19,7 @@ class SearchResult {
         this.page = data.page;
 
         let options = {
-            root: document.querySelector('#resultWrap'),
+            root: this.$resultWrap,
             rootMargin: '0px 0px -200px 0px',
             threshold: 1.0
         }

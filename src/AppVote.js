@@ -1,4 +1,4 @@
-import { Header, DarkMode, Random } from './components';
+import { Header, DarkMode, Vote } from './components';
 import { api } from './utils/api.js';
 
 class AppVote {
@@ -9,7 +9,7 @@ class AppVote {
         this.$target.append(this.$header, this.$main);
 
         this.data = {
-            cats: {},
+            cats: [],
             vote: []
         };
 
@@ -23,11 +23,12 @@ class AppVote {
     }
 
     mountComponent() {
-        this.random = new Random({
+        this.vote = new Vote({
             $target: this.$main,
             data: this.data.cats,
             onClickLike: (id) => { this.onClickLike(id) },
             onDeleteLike: (id) => { this.onDeleteLike(id) },
+            onBottom: () => { this.onBottom() }
         })
 
         this.header = new Header({
@@ -37,6 +38,9 @@ class AppVote {
         this.darkMode = new DarkMode({
             $target: this.$target,
         })
+    }
+    onBottom() {
+        this.fetchRandom();
     }
 
     init() {
@@ -56,7 +60,7 @@ class AppVote {
     async fetchRandom() {
         const data = await api.fetchRandom();
         this.data.cats = data;
-        await this.random.setState(this.data.cats);
+        await this.vote.setState(this.data.cats);
     }
 
     async fetchPostVote(state) {

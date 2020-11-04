@@ -1,4 +1,4 @@
-class Random {
+class Vote {
     constructor({ $target, data, onClickLike }) {
         this.$target = $target;
         this.data = data;
@@ -22,7 +22,7 @@ class Random {
         const { 0: { id, url } } = this.data;
         const htmlStr = `
             <div class='imgwrap'>
-                 <img data-src=${url} src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F2ChCI%2FbtqvPbkYHXS%2FBjoh4TSXHv66xRoiu6mrr1%2Fimg.gif' alt=${id}/>
+                 <img data-src=${url} src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/src/assets/imageLoading.gif' alt=${id}/>
             </div>
             <button id='heart'>❤︎</button>
             `
@@ -57,4 +57,4 @@ class Random {
     }
 }
 
-export default Random;
+export default Vote;

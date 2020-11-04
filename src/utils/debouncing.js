@@ -1,10 +1,10 @@
-const debouncing = (lazyLoading, item) => {
+const debouncing = (action, item = null) => {
     let timer = false;
     if (timer !== false) {
         clearTimeout(timer);
     }
     timer = setTimeout(function () {
-        lazyLoading(item);
+        action(item);
     }, 1500);
 }
 
