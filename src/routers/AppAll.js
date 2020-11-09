@@ -1,5 +1,5 @@
-import { SearchResult, Header, DarkMode } from './components';
-import { api } from './utils/api.js';
+import { SearchResult, Header, DarkMode } from '../components';
+import { api } from '../utils/api.js';
 
 class AppAll {
     constructor({ $target }) {
@@ -90,6 +90,7 @@ class AppAll {
             ...this.data,
             items: cats ? cats : []
         });
+        await console.log(cats);
     }
 }
 export default AppAll;

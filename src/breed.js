@@ -1,4 +1,4 @@
-import AppBreed from './AppBreed.js';
+import { AppBreed } from './routers';
 const css = require('./scss/index.scss');
 
 new AppBreed({

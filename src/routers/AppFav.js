@@ -1,5 +1,5 @@
-import { Header, Loading, DarkMode, Favorite } from './components';
-import { api } from './utils/api.js';
+import { Header, Loading, DarkMode, Favorite } from '../components';
+import { api } from '../utils/api.js';
 
 class AppFav {
     constructor({ $target }) {

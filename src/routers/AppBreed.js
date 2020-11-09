@@ -1,5 +1,5 @@
-import { Select, SearchResult, SearchInfo, Header, DarkMode, Loading } from './components';
-import { api } from './utils/api.js';
+import { Select, SearchResult, SearchInfo, Header, DarkMode, Loading } from '../components';
+import { api } from '../utils/api.js';
 
 class AppBreed {
     constructor({ $target }) {

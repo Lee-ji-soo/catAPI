@@ -49,6 +49,7 @@ class SearchResult {
     }
 
     setState(nextData) {
+        console.log('searchResult', nextData)
         this.page = nextData.page;
 
         if (this.page !== 1) {

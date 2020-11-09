@@ -1,4 +1,4 @@
-import App from './App.js';
+import { App } from './routers';
 const css = require('./scss/index.scss');
 
 new App({

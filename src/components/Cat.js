@@ -19,7 +19,7 @@ class Cat {
         this.$target = $target;
         this.$cat = document.createElement('img');
         this.$cat.className = 'cat';
-        this.$cat.setAttribute('src', './src/assets/cat.png');
+        this.$cat.setAttribute('src', '../src/assets/cat.png');
         this.$target.appendChild(this.$cat);
 
         this.$cat.style.width = `${this.width}px`;

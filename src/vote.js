@@ -1,4 +1,4 @@
-import AppVote from './AppVote.js';
+import { AppVote } from './routers';
 const css = require('./scss/index.scss');
 
 new AppVote({

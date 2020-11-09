@@ -1,4 +1,4 @@
-import AppAll from './AppAll.js';
+import { AppAll } from './routers';
 const css = require('./scss/index.scss');
 
 new AppAll({

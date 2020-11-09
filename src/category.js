@@ -1,4 +1,4 @@
-import AppCategory from './AppCategory.js';
+import { AppCategory } from './routers';
 const css = require('./scss/index.scss');
 
 new AppCategory({

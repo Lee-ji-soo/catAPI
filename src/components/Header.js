@@ -58,11 +58,11 @@ class Header {
             <div class='btn_line'></div>
         `
         this.$nav.innerHTML = `
-            <li data-path='1'><a href='/all.html'>ALL</a></li>
-            <li data-path='2'><a href='/category.html'>CATEGORY</a></li>
-            <li data-path='3'><a href='/breed.html'>BREEDS</a></li>
-            <li data-path='4'><a href='/vote.html'>VOTE</a></li>
-            <li data-path='5'><a href='/favorite.html'>FAVORITE</a></li>
+            <li data-path='1'><a href='./all.html'>ALL</a></li>
+            <li data-path='2'><a href='./category.html'>CATEGORY</a></li>
+            <li data-path='3'><a href='./breed.html'>BREEDS</a></li>
+            <li data-path='4'><a href='./vote.html'>VOTE</a></li>
+            <li data-path='5'><a href='./favorite.html'>FAVORITE</a></li>
         `
         this.$navLi = this.$nav.querySelectorAll('li');
     }

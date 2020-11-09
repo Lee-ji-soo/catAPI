@@ -1,4 +1,4 @@
-import { RollingText, Cat } from './components';
+import { RollingText, Cat } from '../components';
 
 class App {
     constructor({ $target }) {
@@ -29,7 +29,7 @@ class App {
     }
 
     init() {
-        this.$h1.innerHTML = '<a href="/all.html">CATCH CAT </a>';
+        this.$h1.innerHTML = '<a href="/src/all.html">CATCH CAT </a>';
         for (let i = 0; i < 2; i++) {
             this.mountRollingText(i);
         }
