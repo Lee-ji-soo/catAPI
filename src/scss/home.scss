@@ -6,24 +6,40 @@
     position:relative;
     background: linear-gradient(to right, #fff,#f3f3f3);
     .cat{
-        cursor:pointer;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width:270px;
+        height:240px;
+        background-position: center;
+        background-size: 100%;
+        background-repeat: no-repeat;
         position:absolute;
-        z-index:10;
-        visibility: visible;
-        opacity:1;
-        transition:all .1s ease;
-        &.disappear{
-            opacity:0;
-            visibility:hidden;
+        left:50%;
+        top:37%;
+        transform: translate(-50%,-50%);
+                
+        .eye{
+            color:white;
+            display:flex;
+            position:absolute;
+            left:25%;
+            top:37%;
+            z-index:99;
+            font-size:2rem;
+            &:last-child{
+                left:67%;
+            }
         }
     }
+    
     h1{
         width:452px;
         text-align:center;
         cursor:pointer;
         position:absolute;
         z-index:20;
-        top:50%;
+        top:60%;
         left:50%;
         transform: translate(-50%,-50%);
         font-size:5rem;
@@ -81,6 +97,14 @@
             text-align:center;
             margin:0 auto;
             line-height: 8rem;
+        }
+        .cat{
+            width: 150px;
+            height:120px;
+            top:28%;
+            .eye{
+                font-size:1rem;
+            }
         }
     }
 }

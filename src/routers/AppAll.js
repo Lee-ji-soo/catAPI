@@ -65,6 +65,7 @@ class AppAll {
     };
 
     onBottom() {
+        console.log('bottom');
         this.data.page = this.data.page + 1;
         this.fetchMoreCat(this.data)
     }

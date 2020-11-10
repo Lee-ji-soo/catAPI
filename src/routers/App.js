@@ -1,35 +1,30 @@
-import { RollingText, Cat } from '../components';
+import { RollingText, Eye } from '../components';
 
 class App {
     constructor({ $target }) {
         this.$target = $target;
         this.$h1 = document.createElement('h1');
-        this.$target.append(this.$h1);
-        this.totalCat = 10;
+        this.$cat = document.createElement('div');
+        this.$cat.className = 'cat';
+        this.$cat.style.backgroundImage = "url('./assets/cat2.png')";
+        this.$target.append(this.$h1, this.$cat);
 
+        this.eye;
 
         this.init();
-        this.renderCat();
+        this.renderCatEye();
     }
 
-    renderCat() {
-        let cat;
-        for (let i = 0; i < this.totalCat; i++) {
-            const width = Math.random() * 300;
-            const left = Math.random() * 900;
-
-            const top = Math.random() * 900;
-            cat = new Cat({
-                $target: this.$target,
-                width: width,
-                left: left,
-                top: top,
-            })
+    renderCatEye() {
+        for (let i = 0; i < 2; i++) {
+            this.eye = new Eye({
+                $cat: this.$cat,
+            });
         }
     }
 
     init() {
-        this.$h1.innerHTML = '<a href="/src/all.html">CATCH CAT </a>';
+        this.$h1.innerHTML = '<a href="/all.html">CATCH CAT </a>';
         for (let i = 0; i < 2; i++) {
             this.mountRollingText(i);
         }

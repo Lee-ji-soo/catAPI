@@ -6,4 +6,3 @@ const masonryGrid = (container, item) => {
 }
 
 export { masonryGrid };
-

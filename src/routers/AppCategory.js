@@ -1,4 +1,4 @@
-import { Select, SearchResult, SearchInfo, Header, DarkMode, Loading } from '../components';
+import { Select, SearchResult, Header, DarkMode, Loading } from '../components';
 import { api } from '../utils/api.js';
 
 class AppCategory {

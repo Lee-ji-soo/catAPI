@@ -1,4 +1,4 @@
-import { masonryGrid, debouncing } from '../utils';
+import { debouncing, masonryGrid } from '../utils';
 
 class SearchResult {
 
@@ -19,37 +19,37 @@ class SearchResult {
         this.page = data.page;
 
         let options = {
-            root: this.$resultWrap,
-            rootMargin: '0px 0px -200px 0px',
+            rootMargin: '100px 0px',
             threshold: 1.0
         }
 
         //각 고양이 이미지
         this.$cat;
-        this.observer = new IntersectionObserver((items) => { this.observe(items, this.lazyloading) }, options)
+        this.observer = new IntersectionObserver((item) => { this.observe(item, this.lazyloading) }, options)
+        this.observerLastChild = new IntersectionObserver((item) => { this.observeLastChild(item, this.onBottom) }, options)
     }
 
     lazyloading(item) {
         item.target.querySelector('img').src = item.target.querySelector('img').dataset.src;
     }
 
-    observe(items, lazyLoading) {
+    observe(items, lazyloading) {
         items.forEach(item => {
-            let dataIndex = Number(item.target.dataset.index);
-
             if (item.isIntersecting) {
-                masonryGrid(this.$searchResult, item.target);
-                debouncing(lazyLoading, item);
-
-                if (dataIndex + 1 === this.data.length) {
-                    this.onBottom();
-                }
+                debouncing(lazyloading, item);
+                masonryGrid(this.$searchResult, item.target)
             }
         })
     }
 
+    observeLastChild(item, bottom) {
+        console.log(item);
+        if (item[0].isIntersecting) {
+            debouncing(bottom);
+        }
+    }
+
     setState(nextData) {
-        console.log('searchResult', nextData)
         this.page = nextData.page;
 
         if (this.page !== 1) {
@@ -83,11 +83,13 @@ class SearchResult {
         }
 
         this.$cat = this.$searchResult.querySelectorAll('.item');
+        this.$lastChild = this.$searchResult.lastChild;
         this.addClickEvt();
 
         this.$cat.forEach(($item) => {
             this.observer.observe($item);
         })
+        this.observerLastChild.observe(this.$lastChild);
     }
 
     addClickEvt() {
@@ -99,7 +101,10 @@ class SearchResult {
     }
 
     handleClick(clickedItem) {
-        this.onClickImg(clickedItem)
+        if (this.onClickImg) {
+            this.onClickImg(clickedItem)
+            return;
+        }
     }
 }
 

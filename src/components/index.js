@@ -7,6 +7,6 @@ import Loading from './Loading';
 import Vote from './Vote';
 import Favorite from './Favorite';
 import RollingText from './RollingText';
-import Cat from './Cat';
+import Eye from './Eye';
 
-export { Header, SearchResult, Select, DarkMode, Loading, SearchInfo, Vote, Favorite, RollingText, Cat };
+export { Header, SearchResult, Select, DarkMode, Loading, SearchInfo, Vote, Favorite, RollingText, Eye };
