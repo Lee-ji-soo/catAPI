@@ -5,7 +5,7 @@ const debouncing = (action, item = null) => {
     }
     timer = setTimeout(function () {
         action(item);
-    }, 1500);
+    }, 2000);
 }
 
 export { debouncing };

@@ -18,37 +18,10 @@ class SearchResult {
         this.$resultWrap.appendChild(this.$searchResult);
         this.page = data.page;
 
-        let options = {
-            rootMargin: '100px 0px',
-            threshold: 1.0
-        }
-
         //각 고양이 이미지
         this.$cat;
-        this.observer = new IntersectionObserver((item) => { this.observe(item, this.lazyloading) }, options)
-        this.observerLastChild = new IntersectionObserver((item) => { this.observeLastChild(item, this.onBottom) }, options)
+        this.observer = new IntersectionObserver((item) => { this.observe(item, this.lazyloading) })
     }
-
-    lazyloading(item) {
-        item.target.querySelector('img').src = item.target.querySelector('img').dataset.src;
-    }
-
-    observe(items, lazyloading) {
-        items.forEach(item => {
-            if (item.isIntersecting) {
-                debouncing(lazyloading, item);
-                masonryGrid(this.$searchResult, item.target)
-            }
-        })
-    }
-
-    observeLastChild(item, bottom) {
-        console.log(item);
-        if (item[0].isIntersecting) {
-            debouncing(bottom);
-        }
-    }
-
     setState(nextData) {
         this.page = nextData.page;
 
@@ -89,7 +62,37 @@ class SearchResult {
         this.$cat.forEach(($item) => {
             this.observer.observe($item);
         })
-        this.observerLastChild.observe(this.$lastChild);
+        this.lastChildObserver();
+    }
+
+    lazyloading(item) {
+        item.target.querySelector('img').src = item.target.querySelector('img').dataset.src;
+    }
+
+    observe(items, lazyloading) {
+        items.forEach(item => {
+            if (item.isIntersecting) {
+                debouncing(lazyloading, item);
+                masonryGrid(this.$searchResult, item.target)
+            }
+        })
+    }
+
+    observeLastChild(item, bottom) {
+        if (item[0].isIntersecting) {
+            debouncing(bottom);
+        }
+    }
+
+    lastChildObserver() {
+        let options = {
+            threshold: 1.0
+        }
+        if (this.$lastChild) {
+            this.observerLastChild = new IntersectionObserver((item) => { this.observeLastChild(item, this.onBottom) }, options)
+            this.observerLastChild.observe(this.$lastChild);
+        }
+
     }
 
     addClickEvt() {
