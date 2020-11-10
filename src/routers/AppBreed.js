@@ -112,7 +112,6 @@ class AppBreed {
     }
 
     onBottom() {
-        this.isLoading.setState(true);
         this.data.page = this.data.page + 1;
         this.fetchMoreCat(this.data)
     }
@@ -142,7 +141,6 @@ class AppBreed {
                 page: this.data.page
             });
         }
-        this.isLoading.setState(false);
     }
 
     async fetchCat(data = this.data) {

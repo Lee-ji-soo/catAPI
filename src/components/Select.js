@@ -38,13 +38,12 @@ class Select {
     onClickSelect(e) {
         this.$selectList.forEach(list => {
             if (e.target === list) {
-                this.addItem(e, name = list.innerText);
                 this.state.id = e.target.parentNode.dataset.select;
+                this.addItem({ e, name: list.innerText });
                 return;
             }
         })
         this.handleActive();
-        this.addItem(e);
     }
 
     handleEvt(e) {
@@ -72,7 +71,7 @@ class Select {
         });
     }
 
-    addItem(e, name) {
+    addItem({ e, name }) {
         this.state.list.map(item => {
             if (name === item.name) {
                 this.state.selected = item

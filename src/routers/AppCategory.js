@@ -101,7 +101,6 @@ class AppCategory {
     }
 
     onBottom() {
-        this.isLoading.setState(true);
         this.data.page = this.data.page + 1;
         this.fetchMoreCat(this.data)
     }
@@ -121,7 +120,6 @@ class AppCategory {
                 page: this.data.page
             });
         }
-        this.isLoading.setState(false);
     }
 
     async fetchInitialCategories() {

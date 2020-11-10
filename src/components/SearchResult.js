@@ -24,10 +24,9 @@ class SearchResult {
     }
     setState(nextData) {
         this.page = nextData.page;
-
         if (this.page !== 1) {
             const newArray = this.data.concat(nextData.items);
-            this.data = Array.from(new Set(newArray));
+            this.data = newArray;
         } else {
             this.data = nextData.items
         }
@@ -79,7 +78,7 @@ class SearchResult {
     }
 
     observeLastChild(item, bottom) {
-        if (item[0].isIntersecting) {
+        if (this.data.length > 0 && item[0].isIntersecting) {
             debouncing(bottom);
         }
     }
