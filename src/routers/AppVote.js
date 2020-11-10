@@ -28,7 +28,7 @@ class AppVote {
             data: this.data.cats,
             onClickLike: (id) => { this.onClickLike(id) },
             onDeleteLike: (id) => { this.onDeleteLike(id) },
-            onBottom: () => { this.onBottom() }
+            onLoadNext: () => { this.onLoadNext() },
         })
 
         this.header = new Header({
@@ -39,7 +39,7 @@ class AppVote {
             $target: this.$target,
         })
     }
-    onBottom() {
+    onLoadNext() {
         this.fetchRandom();
     }
 
