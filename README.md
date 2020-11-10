@@ -43,7 +43,7 @@ https://thecatapi.com/
    - [x] responsive
 - [x] Select - Category
    - [x] responsive
-- [ ] Select - Breed
+- [x] Select - Breed
    - [x] responsive
 - [x] Result
    - [x] responsive

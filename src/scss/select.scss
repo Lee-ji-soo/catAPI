@@ -6,43 +6,69 @@ body{
             width:100%;
             position:relative;
             padding-top:23px;
-        }
-       .select_form{  
-           width:$subWidth;
-           margin:0 auto;
-           ul{ 
-               cursor:pointer;
-               width:100%;
-               display:inline-flex !important;
-               flex-wrap:nowrap;
-               justify-content:flex-start;
-               gap: 0.5rem;
-               max-height:130px;
-               li{     
-                    display:flex;
-                    min-width:fit-content;
-                    height:$buttonHeight;
+            .btn_warp{
+                position:absolute;
+                width: $subWidth+60;
+                margin:0 auto;
+                padding-top:23px;
+                top:0;
+                left:50%;
+                transform: translateX(-50%);
+                .btn{
+                    position:absolute;
+                    cursor:pointer;
                     line-height:$buttonHeight;
-                    font-size:$navFontSize;
-                    padding:$buttonPadding;
-                    border-radius:$buttonRadius;
-                    border:$buttonBorder;
-                    background-color:$buttonColor;
-                    color:var(--font-color);
+                    font-size:2rem;
+                    color:#dbdbdb;
+                    &:first-child{
+                        left:0;
+                    }
                     &:last-child{
-                        margin:none;
+                        right:0;
                     }
                     &:hover{
-                        background-color:$buttonHoverColor;
-                        color:$buttonHoverFontColor;
+                        color:#333;
                     }
-                    &.active{
-                        color:$buttonClickFontColor;
-                        background-color:$buttonClickColor;
-                        border:none;
+                }
+            }
+            .select_form{  
+                width:$subWidth;
+                margin:0 auto;
+                ul{ 
+                    cursor:pointer;
+                    width:100%;
+                    display:inline-flex !important;
+                    flex-wrap:nowrap;
+                    justify-content:flex-start;
+                    gap: 0.5rem;
+                    max-height:130px;
+                    transition: transform .3s ease;
+                    li{     
+                         display:flex;
+                         min-width:fit-content;
+                         height:$buttonHeight;
+                         line-height:$buttonHeight;
+                         font-size:$navFontSize;
+                         padding:$buttonPadding;
+                         border-radius:$buttonRadius;
+                         border:$buttonBorder;
+                         background-color:$buttonColor;
+                         color:var(--font-color);
+                         &:last-child{
+                             margin:none;
+                         }
+                         &:hover{
+                             background-color:$buttonHoverColor;
+                             color:$buttonHoverFontColor;
+                         }
+                         &.active{
+                             color:$buttonClickFontColor;
+                             background-color:$buttonClickColor;
+                             border:none;
+                         }
                     }
-               }
-           }
+                }
+             }
         }
     }
 }
