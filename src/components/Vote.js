@@ -1,8 +1,9 @@
 class Vote {
-    constructor({ $target, data, onClickLike, onLoadNext }) {
+    constructor({ $target, data, onClickLike, onDeleteLike, onLoadNext }) {
         this.$target = $target;
         this.data = data;
         this.onClickLike = onClickLike;
+        this.onDeleteLike = onDeleteLike;
         this.onLoadNext = onLoadNext;
 
         //render random
@@ -13,6 +14,10 @@ class Vote {
         this.$img;
         this.$heart;
         this.$next;
+
+        this.state = {
+            like: false
+        };
     }
 
     setState(nextData) {
@@ -37,20 +42,39 @@ class Vote {
         this.$img = this.$random.querySelector('img');
         this.$heart = this.$random.querySelector('#heart');
         this.$next = this.$random.querySelector('#nextRandom');
-        this.$random.addEventListener('click', (e) => { this.handleClick(e, id) });
+        this.$random.addEventListener('click', (e) => { this.handleClick(e, id, this.onClickLike, this.onDeleteLike, this.onLoadNext) });
 
         //observer
         this.observer = new IntersectionObserver((item) => { this.observe(item) });
         this.observer.observe(this.$img);
     }
 
-    handleClick(e, id) {
+    handleClick(e, id, onLike, onUnlike, onNext) {
+        e.preventDefault();
         if (e.target === this.$heart) {
-            this.onClickLike(id);
-            this.$heart.style.color = 'red';
+            this.handleHeart(id, onLike, onUnlike);
         } else if (e.target === this.$next) {
-            this.onLoadNext();
+            this.onLoadNext(onNext);
+            this.state.like = false;
         }
+    }
+
+    handleHeart(id, onLike, onUnLike) {
+        this.state.like = !this.state.like;
+
+        const like = function (id) {
+            onLike(id);
+        }
+        const unlike = function (id) {
+            // onUnLike(id);
+        }
+
+        if (this.state.like) {
+            like(id);
+        } else {
+            unlike(id);
+        }
+        this.$heart.style.color = this.state.like ? 'red' : '#ccc';
     }
 
     lazyloading(item) {

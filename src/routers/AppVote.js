@@ -56,6 +56,9 @@ class AppVote {
     onClickLike(id) {
         this.fetchPostVote({ ...this.state, id });
     }
+    onDeleteLike(id) {
+        this.fetchDeleteVote(id);
+    }
 
     async fetchRandom() {
         const data = await api.fetchRandom();
@@ -65,6 +68,10 @@ class AppVote {
 
     async fetchPostVote(state) {
         await api.fetchPostVote(state);
+    }
+
+    async fetchDeleteVote(id) {
+        await api.fetchDeleteVote(id);
     }
 };
 
