@@ -62,31 +62,36 @@ https://thecatapi.com/
 <p>3.grid 미디어 쿼리 적용 3->2(768px)->1(576px)</p>
 <center>
 <img width='200' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat8.gif'/>
-<center>
+</center>
 
 ## JS 
-### Components
-- [x] Navigation
+### Routers
+- [x] Home
+- [x] All
 - [x] Category
 - [x] Breed
+- [x] Vote
+- [x] Favorite
+
+### Components
+- [x] Navigation
+- [x] Select
 - [x] Result
    - [x] 무한 스크롤 
    - [x] LazyLoading
 - [x] Detail
-- [x] Vote
-- [x] Favorite
+- [x] Darkmode
+- [x] Loading
 
 ### API
-- [x] Search & Pagination (InterSectionObserver) [GET]
-- [x] Search by Breed [GET]
-- [x] Search by Category [GET]
+- [x] Search & Pagination (fetchMore) [GET]
+- [x] Cateogry Selections [GET] 
+- [x] Breeds Selections [GET] 
+- [x] Search by Breeds  [GET]
+- [x] Search by Category  [GET]
 - [x] Vote [POST]
 - [x] Favorite [GET]
 - [x] Delete Favorite [DELETE]
-
-### others
-- [x] Darkmode
-- [x] isLoading
 
 ## CSS
 - [x] Home
