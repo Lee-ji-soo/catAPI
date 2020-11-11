@@ -60,7 +60,9 @@ https://thecatapi.com/
 <p>1.navigation -> 햄버거메뉴로 축약 + 모션 추가</p>
 <p>2.Select -> scroll로 변경</p>
 <p>3.grid 미디어 쿼리 적용 3->2(768px)->1(576px)</p>
-<img width='1180' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat8.gif'/>
+<center>
+<img width='200' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat8.gif'/>
+<center>
 
 ## JS 
 ### Components
