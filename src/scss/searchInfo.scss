@@ -78,7 +78,8 @@
                     padding-top:5rem;
                     flex-direction: column;
                     .img{
-                        width:100%;
+                        width:90%;
+                        margin:0 auto;
                         height:500px;
                     }
                     .description{
@@ -95,7 +96,7 @@
                         }
                     }
                     button{
-                        top:90px;
+                        top:2.4rem;
                         right:4rem;
                     }
                 }

@@ -13,6 +13,7 @@ https://thecatapi.com/
 
 ![alt text](https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/fetchcat2.jpeg?raw=true)
 
+
 ## JS 
 ### Components
 - [x] Navigation

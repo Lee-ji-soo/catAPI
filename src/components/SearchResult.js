@@ -73,7 +73,6 @@ class SearchResult {
 
     observeLastChild(item, bottom) {
         if (this.data.length > 0 && item[0].isIntersecting) {
-            console.log(item[0]);
             bottom();
         }
     }

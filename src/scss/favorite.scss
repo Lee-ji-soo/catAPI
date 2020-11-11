@@ -12,15 +12,22 @@ body{
                     li{
                         position:relative;
                         margin-bottom:1rem;
+                        img{
+                            width:100%;
+                            height:auto;
+                        }
                         button{
                             cursor:pointer;
-                            position:absolute;
-                            bottom:0.5rem;
-                            right:0.5rem;
-                            font-size:2rem;
+                            position:relative;
+                            width:100%;
+                            height:30px;
+                            bottom:0rem;
+                            margin-top:-4px;
+                            font-size:1rem;
                             color:white;
+                            background-color:black;
                             &:hover{
-                                color:pink;
+                                background-color:#333;
                             }
                         }
                     }

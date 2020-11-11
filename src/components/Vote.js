@@ -42,6 +42,7 @@ class Vote {
         this.$img = this.$random.querySelector('img');
         this.$heart = this.$random.querySelector('#heart');
         this.$next = this.$random.querySelector('#nextRandom');
+
         this.$random.addEventListener('click', (e) => { this.handleClick(e, id, this.onClickLike, this.onDeleteLike, this.onLoadNext) });
 
         //observer
@@ -50,23 +51,23 @@ class Vote {
     }
 
     handleClick(e, id, onLike, onUnlike, onNext) {
-        e.preventDefault();
         if (e.target === this.$heart) {
+            this.state.like = !this.state.like;
             this.handleHeart(id, onLike, onUnlike);
+            console.log('clickevt-heart', this.state.like)
         } else if (e.target === this.$next) {
-            this.onLoadNext(onNext);
+            onNext();
             this.state.like = false;
+            console.log('clickevt-next', this.state.like)
         }
     }
 
     handleHeart(id, onLike, onUnLike) {
-        this.state.like = !this.state.like;
-
         const like = function (id) {
             onLike(id);
         }
         const unlike = function (id) {
-            // onUnLike(id);
+            onUnLike(id);
         }
 
         if (this.state.like) {
@@ -74,6 +75,8 @@ class Vote {
         } else {
             unlike(id);
         }
+        console.log('handleClick', this.state.like)
+
         this.$heart.style.color = this.state.like ? 'red' : '#ccc';
     }
 

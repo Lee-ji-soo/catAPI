@@ -91,29 +91,29 @@ body{
             .select_wrap{
                 width:100%;
                 margin-top:62px;
-            }
-            .select_form{  
-                width:100%;
-                ul{ 
-                    position:relative;
+                .select_form{  
                     width:100%;
-                    height:$buttonHeight;
-                    padding:$basicPaddingMO;
-                    display:flex !important;
-                    flex-direction:row;
-                    position:relative;
-                    justify-content: flex-start;
-                    align-items: flex-start;
-                    z-index:0;
-                    border-bottom:none; 
-                    box-sizing:border-box;
-                    overflow-x:scroll;
-                    li{
-                       box-sizing:border-box;
-                       text-align:left;
-                       font-size:1.2rem;
-                       line-height:$buttonHeight;
-                    }          
+                    ul{ 
+                        position:relative;
+                        width:100%;
+                        height:$buttonHeight;
+                        padding:$basicPaddingMO;
+                        display:flex !important;
+                        flex-direction:row;
+                        position:relative;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        z-index:0;
+                        border-bottom:none; 
+                        box-sizing:border-box;
+                        overflow-x:scroll;
+                        li{
+                           box-sizing:border-box;
+                           text-align:left;
+                           font-size:1.2rem;
+                           line-height:$buttonHeight;
+                        }          
+                    }
                 }
             }
         }

@@ -55,7 +55,7 @@ body{
                 width:100%;
                 box-sizing:border-box;
                 padding:$basicPaddingMO;
-                padding-top:90px;
+                padding-top:30px;
                 grid-template-columns:repeat(2 ,1fr);
                 #empty{
                     word-break: keep-all;
@@ -63,10 +63,24 @@ body{
                 li{
                     padding-bottom:0rem;
                     margin-top:-.2rem;
+                    img{
+                        margin-left:-7%;
+                    }
                 }
         }}
     }
-  }   
+  }  
+  body{
+    #All{
+        main{
+            .result-wrap{
+                .SearchResult {
+                    padding-top:90px;
+                }
+            }
+        }
+    }
+  }  
 }
 
 @media screen and (max-width:576px){

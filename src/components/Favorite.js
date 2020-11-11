@@ -40,7 +40,7 @@ class Favorite {
                 <li class='item' data-index=${index}>
                      <img data-src=${cat.image.url} alt=${cat.image.id} 
                         src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/src/assets/imageLoading.gif'/>
-                    <button data-id=${cat.id} class='delete'>X</button>
+                    <button data-id=${cat.id} class='delete'>DELETE</button>
                 </li>`)
             .join('');
 
