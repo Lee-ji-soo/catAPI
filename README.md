@@ -27,32 +27,36 @@ https://thecatapi.com/
 <img width='700' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat2.gif'/>
 <br>
 <br>
-<h3>3.Category & Breeds</h3>
+<h3>3.Category</h3>
 <p>1.해당 nav, 선택 카테고리 활성화된 스타일로 변경</p>
 <p>2.Loading 컴포넌트 활용</p>
 <p>3.api GET 활용 : 선택된 카테고리의 id값을 통해 해당 cat을 불러온다.</p>
 <img width='700' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat3.gif'/>
+<br>
+<br>
+<h3>4.Breed</h3>
+<p>1.Select의 갯수에 따라서 prev,next 버튼추가 + 스크롤</p>
 <img width='700' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat4.gif'/>
 <br>
 <br>
-<h3>4.SearchInfo</h3>
+<h3>5.SearchInfo</h3>
 <p>각 Element에 클릭 이벤트를 통해 디테일 렌딩</p>
 <img width='700' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat5.gif'/>
 
 <br>
 <br>
-<h3>5.DarkMode</h3>
+<h3>6.DarkMode</h3>
 <p>1. local Storage를 활용해, 새로고침을 해도 설정된 mode값을 유지</p>
 <img width='700' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat6.gif'/>
 <br>
 <br>
-<h3>6.Vote & Favorite</h3>
-<p>1.api POST & DELETE를 통해 고양이를 favorite에 저장 혹은 삭제 기능</p>
-<p>2.VOTE 카테고리에서 좋아요 표시 된 이미지를 favorite에 랜딩</p>
+<h3>7.Vote & Favorite</h3>
+<p>1. api POST : vote에서 좋아요 표시 된 이미지를 favorite에 랜딩</p>
+<p>2. api DELETE : favorite에서 삭제 버튼 클릭시 해당 데이터 삭제</p>
 <img width='700' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat7.gif'/>
 <br>
 <br>
-<h3>7.Mobile responsive</h3>
+<h3>8.Mobile responsive</h3>
 <p>1.navigation -> 햄버거메뉴로 축약 + 모션 추가</p>
 <p>2.Select -> scroll로 변경</p>
 <p>3.grid 미디어 쿼리 적용 3->2(768px)->1(576px)</p>
