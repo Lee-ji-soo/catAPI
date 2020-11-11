@@ -6,7 +6,7 @@ class App {
         this.$h1 = document.createElement('h1');
         this.$cat = document.createElement('div');
         this.$cat.className = 'cat';
-        this.$cat.style.backgroundImage = "url('./assets/cat2.png')";
+        this.$cat.style.backgroundImage = "url('/src/assets/cat2.png')";
         this.$target.append(this.$h1, this.$cat);
 
         this.eye;

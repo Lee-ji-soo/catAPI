@@ -17,7 +17,6 @@ class Eye {
         this.domRect = this.$eye.getBoundingClientRect();
         this.domX = this.domRect.x;
         this.$eye.style.transform = `translate(${mouseX / 20}%)`;
-        console.log(mouseX);
         if (mouseX > 500) {
             this.dir = true
         } else {

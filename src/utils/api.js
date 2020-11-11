@@ -4,7 +4,7 @@ const API_ENDPOINT = `https://api.thecatapi.com/v1`;
 const api = {
     fetchCats: async (data) => {
         const res = await
-            fetch(`${API_ENDPOINT}/images/search?limit=12&page=${data.page}&currentPage=${data.page}&order=Desc`);
+            fetch(`${API_ENDPOINT}/images/search?limit=3&page=${data.page}&currentPage=${data.page}&order=Desc`);
         return await res.json()
     },
 
@@ -19,7 +19,7 @@ const api = {
             }
         }
         const res = await
-            fetch(`${API_ENDPOINT}/images/search?${newState()}&limit=12&page=${data.page}&currentPage=${data.page}&order=Desc`, {
+            fetch(`${API_ENDPOINT}/images/search?${newState()}&limit=3&page=${data.page}&currentPage=${data.page}&order=Desc`, {
                 method: 'GET',
                 headers: {
                     "x-api-key": API_KEY

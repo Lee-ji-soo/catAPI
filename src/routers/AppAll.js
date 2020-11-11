@@ -65,7 +65,6 @@ class AppAll {
     };
 
     onBottom() {
-        console.log('bottom');
         this.data.page = this.data.page + 1;
         this.fetchMoreCat(this.data)
     }
@@ -91,7 +90,6 @@ class AppAll {
             ...this.data,
             items: cats ? cats : []
         });
-        await console.log(cats);
     }
 }
 export default AppAll;

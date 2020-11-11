@@ -1,4 +1,4 @@
-import { debouncing, masonryGrid } from '../utils';
+import { debouncing } from '../utils';
 
 class SearchResult {
 
@@ -24,12 +24,7 @@ class SearchResult {
     }
     setState(nextData) {
         this.page = nextData.page;
-        if (this.page !== 1) {
-            const newArray = this.data.concat(nextData.items);
-            this.data = newArray;
-        } else {
-            this.data = nextData.items
-        }
+        this.data = nextData.items;
         this.render();
     }
 
@@ -72,14 +67,14 @@ class SearchResult {
         items.forEach(item => {
             if (item.isIntersecting) {
                 debouncing(lazyloading, item);
-                masonryGrid(this.$searchResult, item.target)
             }
         })
     }
 
     observeLastChild(item, bottom) {
         if (this.data.length > 0 && item[0].isIntersecting) {
-            debouncing(bottom);
+            console.log(item[0]);
+            bottom();
         }
     }
 
