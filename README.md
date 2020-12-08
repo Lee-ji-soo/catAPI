@@ -1,13 +1,8 @@
 # catAPI
-catAPI _ JS
+catAPI _ JS https://thecatapi.com/
 
 ## lang
 JS, SCSS, HTML
-
-## Open source CAT API 
-https://thecatapi.com/
-
-![alt text](https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/fetchcat2.jpeg?raw=true)
 
 ## 완성페이지
 <h3>1.Home</h3>
@@ -60,6 +55,10 @@ https://thecatapi.com/
 <center>
 <img width='200' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat8.gif'/>
 </center>
+
+## structure 
+![alt text](https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/fetchcat2.jpeg?raw=true)
+<br>
 
 ## JS 
 ### Routers
