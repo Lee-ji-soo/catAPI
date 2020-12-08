@@ -4,15 +4,12 @@ catAPI _ JS
 ## lang
 JS, SCSS, HTML
 
-## webpack install
-- [x] SCSS (css-loader,node-sass,sass-loader,style-loader)
-- [x] intersection-observer
-
 ## Open source CAT API 
 https://thecatapi.com/
 
 ![alt text](https://raw.githubusercontent.com/Lee-ji-soo/catAPI/main/fetchcat2.jpeg?raw=true)
 
+## 완성페이지
 <h3>1.Home</h3>
 <p>인터렉션을 활용 : 마우스 위치 이벤트, 롤링 텍스트</p>
 <img width='1180' src='https://raw.githubusercontent.com/Lee-ji-soo/catAPI_JS/main/gif/catchcat1.gif'/>
